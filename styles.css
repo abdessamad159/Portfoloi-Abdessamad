@@ -1,0 +1,2414 @@
+/* ===== متغيرات CSS الأساسية ===== */
+:root {
+    /* تعريف المتغيرات الأساسية للوضع النهاري */
+    --primary: #556B2F;
+    /* اللون الأساسي - أخضر زيتوني */
+    --primary-dark: #3A4A1F;
+    /* اللون الأساسي الداكن */
+    --primary-light: #8A9A5B;
+    /* اللون الأساسي الفاتح */
+    --primary-glow: rgba(85, 107, 47, 0.6);
+    /* توهج اللون الأساسي */
+    --secondary: #2F2F2F;
+    /* اللون الثانوي - رمادي داكن */
+    --accent: #8FBC8F;
+    /* لون التمييز - أخضر فاتح */
+    --accent-glow: rgba(143, 188, 143, 0.6);
+    /* توهج لون التمييز */
+    --text: #333333;
+    /* لون النص الأساسي */
+    --text-light: #777777;
+    /* لون النص الثانوي */
+    --bg: #F8F9FA;
+    /* لون الخلفية */
+    --card-bg: #FFFFFF;
+    /* لون خلفية البطاقات */
+    --card-hover: #F0F0F0;
+    /* لون البطاقات عند التمرير */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* ظل العناصر */
+    --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
+    /* ظل العناصر عند التمرير */
+    --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* انتقال سريع */
+    --transition-slow: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* انتقال بطيء */
+    --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* انتقال سريع جداً */
+    --border-radius: 20px;
+    /* زوايا دائرية كبيرة */
+    --border-radius-small: 10px;
+    /* زوايا دائرية صغيرة */
+    --section-padding: clamp(4rem, 8vw, 10rem);
+    /* حشوة الأقسام متجاوبة */
+}
+
+/* ===== متغيرات الوضع الليلي ===== */
+.dark-mode {
+    /* تعريف المتغيرات للوضع الليلي */
+    --primary: #8FBC8F;
+    /* اللون الأساسي يصبح فاتحاً */
+    --primary-dark: #6A8B6A;
+    /* اللون الأساسي الداكن */
+    --primary-light: #A8C6A8;
+    /* اللون الأساسي الفاتح */
+    --primary-glow: rgba(143, 188, 143, 0.6);
+    /* توهج اللون الأساسي */
+    --secondary: #1A1A1A;
+    /* خلفية أغمق */
+    --accent: #556B2F;
+    /* لون التمييز يصبح داكناً */
+    --accent-glow: rgba(85, 107, 47, 0.6);
+    /* توهج لون التمييز */
+    --text: #E0E0E0;
+    /* نص فاتح */
+    --text-light: #A0A0A0;
+    /* نص ثانوي فاتح */
+    --bg: #0D0D0D;
+    /* خلفية سوداء */
+    --card-bg: #1A1A1A;
+    /* خلفية بطاقات داكنة */
+    --card-hover: #252525;
+    /* خلفية البطاقات عند التمرير */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* ظل أغمق */
+    --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.5);
+    /* ظل التمرير أغمق */
+}
+
+/* ===== إعادة الضبط الأساسية ===== */
+* {
+    /* إعادة ضبط جميع العناصر */
+    margin: 0;
+    /* إزالة الهوامش */
+    padding: 0;
+    /* إزالة الحشوات */
+    box-sizing: border-box;
+    /* تضمين الحشوات والحدود في الأبعاد */
+}
+
+html {
+    /* إعدادات HTML */
+    scroll-behavior: smooth;
+    /* تمرير سلس */
+    font-size: 16px;
+    /* حجم الخط الأساسي */
+}
+
+body {
+    /* إعدادات الجسم */
+    font-family: 'Tajawal', sans-serif;
+    /* خط Tajawal للعربية */
+    background-color: var(--bg);
+    /* لون الخلفية من المتغيرات */
+    color: var(--text);
+    /* لون النص من المتغيرات */
+    line-height: 1.6;
+    /* ارتفاع السطر */
+    overflow-x: hidden;
+    /* منع التمرير الأفقي */
+    transition: var(--transition);
+    /* انتقال التغييرات */
+    min-height: 100vh;
+    /* أدنى ارتفاع للشاشة */
+}
+
+/* ===== تأثيرات جديدة ===== */
+.glitch-effect {
+    /* تأثير الغليتش */
+    position: relative;
+    /* تحديد الوضع النسبي */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+    /* العناصر الزائفة لتأثير الغليتش */
+    content: attr(data-text);
+    /* استخدام نص من السمة data-text */
+    position: absolute;
+    /* وضع مطلق */
+    top: 0;
+    /* أعلى العنصر */
+    left: 0;
+    /* أقصى اليسار */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    opacity: 0;
+    /* شفافية كاملة */
+}
+
+.glitch-effect:hover::before {
+    /* تأثير الغليتش الأول عند التمرير */
+    animation: glitch-1 0.5s infinite linear alternate-reverse;
+    /* تشغيل الأنيميشن */
+    color: #ff00ff;
+    /* لون وردي */
+    z-index: -1;
+    /* خلف المحتوى */
+}
+
+.glitch-effect:hover::after {
+    /* تأثير الغليتش الثاني عند التمرير */
+    animation: glitch-2 0.5s infinite linear alternate-reverse;
+    /* تشغيل الأنيميشن */
+    color: #00ffff;
+    /* لون أزرق فاتح */
+    z-index: -2;
+    /* خلف التأثير الأول */
+}
+
+.confetti {
+    /* عناصر الكونفيتي */
+    position: fixed;
+    /* وضع ثابت */
+    width: 10px;
+    /* عرض صغير */
+    height: 10px;
+    /* ارتفاع صغير */
+    background-color: var(--primary);
+    /* لون من المتغيرات */
+    top: 0;
+    /* بداية من الأعلى */
+    opacity: 0;
+    /* غير مرئي */
+    z-index: 9999;
+    /* أعلى طبقة */
+}
+
+.success-message {
+    /* رسالة النجاح */
+    position: fixed;
+    /* وضع ثابت */
+    top: 50%;
+    /* منتصف الشاشة رأسيًا */
+    left: 50%;
+    /* منتصف الشاشة أفقيًا */
+    transform: translate(-50%, -50%) scale(0);
+    /* تكبير ابتدائي صفر */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    padding: 2rem;
+    /* حشوة داخلية */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    box-shadow: var(--shadow-hover);
+    /* ظل */
+    z-index: 10000;
+    /* أعلى طبقة */
+    text-align: center;
+    /* محاذاة النص لليمين */
+    max-width: 90%;
+    /* أقصى عرض */
+    width: 400px;
+    /* عرض ثابت */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* انتقال سلس */
+}
+
+.success-message.active {
+    /* حالة النشاط لرسالة النجاح */
+    transform: translate(-50%, -50%) scale(1);
+    /* تكبير إلى الحجم الطبيعي */
+}
+
+.success-icon {
+    /* أيقونة النجاح */
+    font-size: 4rem;
+    /* حجم كبير */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    margin-bottom: 1rem;
+    /* هامش سفلي */
+    animation: pulse 1.5s infinite;
+    /* أنيميشن النبض */
+}
+
+.success-text {
+    /* نص النجاح */
+    font-size: 1.2rem;
+    /* حجم خط متوسط */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+    color: var(--text);
+    /* لون النص */
+}
+
+.copy-popup {
+    /* النافذة المنبثقة للنسخ */
+    position: absolute;
+    /* وضع مطلق */
+    background: var(--primary);
+    /* خلفية من المتغيرات */
+    color: white;
+    /* نص أبيض */
+    padding: 0.5rem 1rem;
+    /* حشوة داخلية */
+    border-radius: 25px;
+    /* زوايا دائرية */
+    font-size: 0.8rem;
+    /* حجم خط صغير */
+    top: -40px;
+    /* فوق العنصر */
+    left: 50%;
+    /* منتصف العنصر */
+    transform: translateX(-50%);
+    /* محاذاة للمنتصف */
+    opacity: 0;
+    /* غير مرئي */
+    transition: var(--transition);
+    /* انتقال سلس */
+    white-space: nowrap;
+    /* منع تكسير النص */
+    z-index: 10;
+    /* طبقة عالية */
+}
+
+.copy-popup.active {
+    /* حالة النشاط للنافذة المنبثقة */
+    opacity: 1;
+    /* مرئي */
+    top: -50px;
+    /* ارتفاع أعلى */
+}
+
+.copy-popup::after {
+    /* السهم أسفل النافذة المنبثقة */
+    content: '';
+    /* محتوى فارغ */
+    position: absolute;
+    /* وضع مطلق */
+    bottom: -8px;
+    /* أسفل النافذة */
+    left: 50%;
+    /* منتصف النافذة */
+    transform: translateX(-50%);
+    /* محاذاة للمنتصف */
+    width: 0;
+    /* عرض صفر */
+    height: 0;
+    /* ارتفاع صفر */
+    border-left: 8px solid transparent;
+    /* حدود لتشكيل المثلث */
+    border-right: 8px solid transparent;
+    /* حدود لتشكيل المثلث */
+    border-top: 8px solid var(--primary);
+    /* حدود لتشكيل المثلث */
+}
+
+/* ===== Navbar محسنة مثل Ahmed.dev ===== */
+.navbar {
+    /* شريط التنقل */
+    position: fixed;
+    /* وضع ثابت */
+    top: 0;
+    /* أعلى الصفحة */
+    left: 0;
+    /* أقصى اليسار */
+    width: 100%;
+    /* عرض كامل */
+    padding: 1.5rem clamp(1rem, 3vw, 3rem);
+    /* حشوة متجاوبة */
+    display: flex;
+    /* تخطيط مرن */
+    justify-content: space-between;
+    /* توزيع المساحة بين العناصر */
+    align-items: center;
+    /* محاذاة رأسية */
+    z-index: 1000;
+    /* طبقة عالية */
+    background: rgba(248, 249, 250, 0.95);
+    /* خلفية شبه شفافة */
+    backdrop-filter: blur(15px);
+    /* تأثير ضبابي */
+    transition: var(--transition);
+    /* انتقال سلس */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* ظل خفيف */
+}
+
+.dark-mode .navbar {
+    /* شريط التنقل في الوضع الليلي */
+    background: rgba(13, 13, 13, 0.95);
+    /* خلفية داكنة شبه شفافة */
+}
+
+.navbar.scrolled {
+    /* شريط التنقل عند التمرير */
+    padding: 1rem clamp(1rem, 3vw, 3rem);
+    /* حشوة أصغر */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    /* ظل أغمق */
+    background: rgba(248, 249, 250, 0.98);
+    /* خلفية أقل شفافية */
+}
+
+.dark-mode .navbar.scrolled {
+    /* شريط التنقل في الوضع الليلي عند التمرير */
+    background: rgba(13, 13, 13, 0.98);
+    /* خلفية داكنة أقل شفافية */
+}
+
+.logo {
+    /* الشعار */
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    /* حجم خط متجاوب */
+    font-weight: 800;
+    /* سمك خط عريض */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    position: relative;
+    /* وضع نسبي */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    text-decoration: none;
+    /* إزالة التزيين */
+    cursor: pointer;
+    /* مؤشر يد */
+    white-space: nowrap;
+    /* منع تكسير النص */
+}
+
+.logo i {
+    /* أيقونة الشعار */
+    margin-left: 0.5rem;
+    /* هامش أيسر */
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    /* حجم متجاوب */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.logo:hover i {
+    /* أيقونة الشعار عند التمرير */
+    transform: rotate(15deg);
+    /* دوران */
+}
+
+.nav-links {
+    /* روابط التنقل */
+    display: flex;
+    /* تخطيط مرن */
+    list-style: none;
+    /* إزالة النقاط */
+    gap: clamp(1rem, 2vw, 2rem);
+    /* فراغات متجاوبة */
+}
+
+.nav-links li {
+    /* عناصر قائمة التنقل */
+    position: relative;
+    /* وضع نسبي */
+}
+
+.nav-links a {
+    /* روابط التنقل */
+    text-decoration: none;
+    /* إزالة التزيين */
+    color: var(--text);
+    /* لون النص */
+    font-weight: 600;
+    /* سمك خط متوسط */
+    position: relative;
+    /* وضع نسبي */
+    padding: 0.5rem 0;
+    /* حشوة رأسية */
+    transition: var(--transition);
+    /* انتقال سلس */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    /* حجم خط متجاوب */
+}
+
+.nav-links a::before {
+    /* خط تحت الرابط */
+    content: '';
+    /* محتوى فارغ */
+    position: absolute;
+    /* وضع مطلق */
+    bottom: 0;
+    /* أسفل الرابط */
+    right: 0;
+    /* أقصى اليمين */
+    width: 0;
+    /* عرض ابتدائي صفر */
+    height: 2px;
+    /* ارتفاع الخط */
+    background: var(--primary);
+    /* لون من المتغيرات */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.nav-links a:hover {
+    /* روابط التنقل عند التمرير */
+    color: var(--primary);
+    /* تغيير اللون */
+}
+
+.nav-links a:hover::before {
+    /* خط تحت الرابط عند التمرير */
+    width: 100%;
+    /* عرض كامل */
+}
+
+.nav-actions {
+    /* أزرار التنقل الإضافية */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 1rem;
+    /* فراغات */
+}
+
+.theme-toggle, .language-toggle {
+    /* أزرار تبديل الوضع واللغة */
+    background: none;
+    /* إزالة الخلفية */
+    border: none;
+    /* إزالة الحدود */
+    color: var(--text);
+    /* لون النص */
+    font-size: 1.3rem;
+    /* حجم خط */
+    cursor: pointer;
+    /* مؤشر يد */
+    transition: var(--transition);
+    /* انتقال سلس */
+    width: 40px;
+    /* عرض ثابت */
+    height: 40px;
+    /* ارتفاع ثابت */
+    border-radius: 50%;
+    /* شكل دائري */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+}
+
+.theme-toggle:hover, .language-toggle:hover {
+    /* أزرار التبديل عند التمرير */
+    color: var(--primary);
+    /* تغيير اللون */
+    transform: rotate(30deg);
+    /* دوران */
+    background: rgba(85, 107, 47, 0.1);
+    /* خلفية شفافة */
+}
+
+.menu-toggle {
+    /* زر قائمة الموبايل */
+    display: none;
+    /* مخفي افتراضيًا */
+    background: none;
+    /* إزالة الخلفية */
+    border: none;
+    /* إزالة الحدود */
+    color: var(--text);
+    /* لون النص */
+    font-size: 1.5rem;
+    /* حجم خط */
+    cursor: pointer;
+    /* مؤشر يد */
+    transition: var(--transition);
+    /* انتقال سلس */
+    width: 40px;
+    /* عرض ثابت */
+    height: 40px;
+    /* ارتفاع ثابت */
+    border-radius: 50%;
+    /* شكل دائري */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+}
+
+.menu-toggle:hover {
+    /* زر القائمة عند التمرير */
+    color: var(--primary);
+    /* تغيير اللون */
+    background: rgba(85, 107, 47, 0.1);
+    /* خلفية شفافة */
+}
+
+/* شريط التقدم */
+.progress-bar {
+    /* شريط التقدم */
+    position: fixed;
+    /* وضع ثابت */
+    top: 0;
+    /* أعلى الصفحة */
+    right: 0;
+    /* أقصى اليمين */
+    width: 0%;
+    /* عرض ابتدائي صفر */
+    height: 3px;
+    /* ارتفاع صغير */
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    /* خلفية متدرجة */
+    z-index: 1001;
+    /* طبقة عالية */
+    transition: width 0.3s ease;
+    /* انتقال سلس */
+}
+
+/* ===== دوائر الخلفية المتحركة ===== */
+.floating-bubbles {
+    /* دوائر الخلفية المتحركة */
+    position: fixed;
+    /* وضع ثابت */
+    top: 0;
+    /* أعلى الصفحة */
+    left: 0;
+    /* أقصى اليسار */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    pointer-events: none;
+    /* لا يتفاعل مع المؤشر */
+    z-index: -1;
+    /* خلف المحتوى */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+}
+
+.bubble {
+    /* الدوائر الفردية */
+    position: absolute;
+    /* وضع مطلق */
+    border-radius: 50%;
+    /* شكل دائري */
+    background: var(--primary);
+    /* لون من المتغيرات */
+    opacity: 0.1;
+    /* شفافية */
+    animation: floatBubble 15s infinite ease-in-out;
+    /* أنيميشن الطفو */
+    cursor: pointer;
+    /* مؤشر يد */
+    pointer-events: auto;
+    /* تفعيل التفاعل */
+    transition: transform 0.3s ease;
+    /* انتقال سلس */
+}
+
+.bubble:hover {
+    /* الدوائر عند التمرير */
+    opacity: 0.2;
+    /* زيادة الشفافية */
+}
+
+.bubble.popped {
+    /* الدوائر عند النقر */
+    animation: popBubble 0.5s forwards;
+    /* أنيميشن الانفجار */
+}
+
+/* ===== المحتوى الرئيسي ===== */
+.container {
+    /* الحاوية الرئيسية */
+    max-width: 1400px;
+    /* أقصى عرض */
+    margin: 0 auto;
+    /* توسيط */
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    /* حشوة متجاوبة */
+}
+
+/* ===== قسم البطل ===== */
+.hero {
+    /* قسم البطل */
+    min-height: 100vh;
+    /* أدنى ارتفاع للشاشة */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    position: relative;
+    /* وضع نسبي */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    padding-top: 80px;
+    /* حشوة علوية */
+}
+
+.hero-content {
+    /* محتوى قسم البطل */
+    display: grid;
+    /* تخطيط شبكي */
+    grid-template-columns: 1fr 1fr;
+    /* عمودين متساويين */
+    gap: clamp(2rem, 5vw, 4rem);
+    /* فراغ متجاوب */
+    align-items: center;
+    /* محاذاة رأسية */
+    width: 100%;
+    /* عرض كامل */
+    position: relative;
+    /* وضع نسبي */
+    z-index: 2;
+    /* طبقة فوق الخلفية */
+}
+
+.hero-text {
+    /* النص في قسم البطل */
+    animation: fadeInLeft 1.2s ease;
+    /* أنيميشن الظهور */
+}
+
+.hero-image {
+    /* الصورة في قسم البطل */
+    display: flex;
+    /* تخطيط مرن */
+    justify-content: center;
+    /* محاذاة أفقية */
+    align-items: center;
+    /* محاذاة رأسية */
+    animation: fadeInRight 1.2s ease;
+    /* أنيميشن الظهور */
+    position: relative;
+    /* وضع نسبي */
+}
+
+.profile-container {
+    /* حاوية الصورة الشخصية */
+    position: relative;
+    /* وضع نسبي */
+    width: min(400px, 80vw);
+    /* عرض متجاوب */
+    height: min(400px, 80vw);
+    /* ارتفاع متجاوب */
+    max-width: 100%;
+    /* أقصى عرض */
+    cursor: pointer;
+    /* مؤشر يد */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.profile-img {
+    /* الصورة الشخصية */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    border-radius: 50%;
+    /* شكل دائري */
+    object-fit: cover;
+    /* تغطية المساحة */
+    border: 8px solid var(--primary);
+    /* حدود */
+    box-shadow: 0 20px 60px rgba(85, 107, 47, 0.3);
+    /* ظل */
+    transition: var(--transition);
+    /* انتقال سلس */
+    position: relative;
+    /* وضع نسبي */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    filter: grayscale(0.2);
+    /* تدرج رمادي خفيف */
+}
+
+.profile-img:hover {
+    /* الصورة الشخصية عند التمرير */
+    transform: scale(1.05);
+    /* تكبير */
+    box-shadow: 0 25px 80px rgba(85, 107, 47, 0.4);
+    /* ظل أكبر */
+    filter: grayscale(0);
+    /* إزالة التدرج الرمادي */
+}
+
+.profile-overlay {
+    /* طبقة overlay للصورة */
+    position: absolute;
+    /* وضع مطلق */
+    top: 0;
+    /* أعلى الصورة */
+    left: 0;
+    /* أقصى اليسار */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    background: rgba(85, 107, 47, 0.8);
+    /* خلفية شبه شفافة */
+    border-radius: 50%;
+    /* شكل دائري */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+    opacity: 0;
+    /* غير مرئي */
+    transition: var(--transition);
+    /* انتقال سلس */
+    color: white;
+    /* نص أبيض */
+    font-size: 1.2rem;
+    /* حجم خط */
+    font-weight: 600;
+    /* سمك خط */
+}
+
+.profile-container:hover .profile-overlay {
+    /* طبقة overlay عند التمرير */
+    opacity: 1;
+    /* مرئي */
+}
+
+h1 {
+    /* العنوان الرئيسي */
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    /* حجم خط متجاوب */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    line-height: 1.2;
+    /* ارتفاع السطر */
+}
+
+.title {
+    /* العنوان الثانوي */
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    /* حجم خط متجاوب */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+    color: var(--text);
+    /* لون النص */
+}
+
+.description {
+    /* الوصف */
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    /* حجم خط متجاوب */
+    line-height: 1.8;
+    /* ارتفاع السطر */
+    margin-bottom: 2.5rem;
+    /* هامش سفلي */
+    color: var(--text-light);
+    /* لون النص الثانوي */
+}
+
+.btn {
+    /* الأزرار */
+    display: inline-block;
+    /* عرض حسب المحتوى */
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    /* حشوة متجاوبة */
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    /* خلفية متدرجة */
+    color: white;
+    /* نص أبيض */
+    border: none;
+    /* إزالة الحدود */
+    border-radius: 50px;
+    /* زوايا دائرية */
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    /* حجم خط متجاوب */
+    font-weight: 600;
+    /* سمك خط */
+    cursor: pointer;
+    /* مؤشر يد */
+    transition: var(--transition);
+    /* انتقال سلس */
+    text-decoration: none;
+    /* إزالة التزيين */
+    box-shadow: 0 10px 30px rgba(85, 107, 47, 0.3);
+    /* ظل */
+    position: relative;
+    /* وضع نسبي */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+}
+
+.btn::before {
+    /* تأثير اللمعان على الأزرار */
+    content: '';
+    /* محتوى فارغ */
+    position: absolute;
+    /* وضع مطلق */
+    top: 0;
+    /* أعلى الزر */
+    left: -100%;
+    /* خارج الزر من اليسار */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    /* تدرج شفاف */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.btn:hover::before {
+    /* تأثير اللمعان عند التمرير */
+    left: 100%;
+    /* تحريك عبر الزر */
+}
+
+.btn:hover {
+    /* الأزرار عند التمرير */
+    transform: translateY(-5px);
+    /* رفع للأعلى */
+    box-shadow: 0 15px 40px rgba(85, 107, 47, 0.4);
+    /* ظل أكبر */
+}
+
+.btn-outline {
+    /* الأزرار ذات الإطار */
+    background: transparent;
+    /* خلفية شفافة */
+    border: 2px solid var(--primary);
+    /* حدود */
+    color: var(--primary);
+    /* لون النص */
+    margin-right: 1rem;
+    /* هامش أيمن */
+}
+
+.btn-outline:hover {
+    /* الأزرار ذات الإطار عند التمرير */
+    background: var(--primary);
+    /* خلفية */
+    color: white;
+    /* نص أبيض */
+}
+
+/* ===== تأثير نسخ البريد الإلكتروني ===== */
+.copy-effect {
+    /* تأثير النسخ */
+    position: fixed;
+    /* وضع ثابت */
+    top: 0;
+    /* أعلى الصفحة */
+    left: 0;
+    /* أقصى اليسار */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    background: var(--primary);
+    /* خلفية */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+    z-index: 9998;
+    /* طبقة عالية */
+    opacity: 0;
+    /* غير مرئي */
+    visibility: hidden;
+    /* مخفي */
+    transition: var(--transition-slow);
+    /* انتقال بطيء */
+}
+
+.copy-effect.active {
+    /* تأثير النسخ النشط */
+    opacity: 1;
+    /* مرئي */
+    visibility: visible;
+    /* ظاهر */
+}
+
+.copy-effect-content {
+    /* محتوى تأثير النسخ */
+    text-align: center;
+    /* محاذاة النص لليمين */
+    color: white;
+    /* نص أبيض */
+    background: rgba(0, 0, 0, 0.7);
+    /* خلفية شبه شفافة */
+    padding: 3rem;
+    /* حشوة داخلية */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    /* ظل */
+}
+
+.copy-effect-text {
+    /* نص تأثير النسخ */
+    font-size: clamp(2rem, 5vw, 4rem);
+    /* حجم خط متجاوب */
+    font-weight: 800;
+    /* سمك خط عريض */
+    margin-bottom: 2rem;
+    /* هامش سفلي */
+}
+
+/* ===== الأقسام ===== */
+section {
+    /* الأقسام العامة */
+    padding: var(--section-padding) 0;
+    /* حشوة متغيرة */
+    position: relative;
+    /* وضع نسبي */
+}
+
+.section-title {
+    /* عناوين الأقسام */
+    text-align: center;
+    /* محاذاة النص لليمين */
+    font-size: clamp(2rem, 5vw, 3rem);
+    /* حجم خط متجاوب */
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    /* هامش سفلي متجاوب */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    position: relative;
+    /* وضع نسبي */
+}
+
+.section-title::after {
+    /* خط تحت عنوان القسم */
+    content: '';
+    /* محتوى فارغ */
+    position: absolute;
+    /* وضع مطلق */
+    bottom: -15px;
+    /* أسفل العنوان */
+    right: 50%;
+    /* منتصف العنوان */
+    transform: translateX(50%);
+    /* محاذاة للمنتصف */
+    width: 100px;
+    /* عرض ثابت */
+    height: 5px;
+    /* ارتفاع الخط */
+    background: var(--primary);
+    /* لون من المتغيرات */
+    border-radius: 5px;
+    /* زوايا دائرية */
+}
+
+/* ===== قسم التقنيات المتقدم ===== */
+.tech-stack-advanced {
+    /* حاوية التقنيات */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    padding: clamp(2rem, 4vw, 3rem);
+    /* حشوة متجاوبة */
+    box-shadow: var(--shadow);
+    /* ظل */
+    margin-bottom: 3rem;
+    /* هامش سفلي */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.tech-stack-advanced:hover {
+    /* حاوية التقنيات عند التمرير */
+    transform: translateY(-10px);
+    /* رفع للأعلى */
+    box-shadow: var(--shadow-hover);
+    /* ظل أكبر */
+}
+
+.tech-categories {
+    /* فئات التقنيات */
+    display: grid;
+    /* تخطيط شبكي */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* أعمدة متجاوبة */
+    gap: 2rem;
+    /* فراغات */
+    margin-bottom: 3rem;
+    /* هامش سفلي */
+}
+
+.tech-category-advanced {
+    /* فئة تقنية */
+    background: var(--bg);
+    /* خلفية من المتغيرات */
+    padding: 2rem;
+    /* حشوة داخلية */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.tech-category-advanced:hover {
+    /* فئة التقنية عند التمرير */
+    transform: translateY(-5px);
+    /* رفع للأعلى */
+    box-shadow: var(--shadow);
+    /* ظل */
+}
+
+.tech-category-advanced h3 {
+    /* عنوان فئة التقنية */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+    font-size: 1.5rem;
+    /* حجم خط */
+    text-align: center;
+    /* محاذاة النص لليمين */
+    border-bottom: 2px solid var(--primary);
+    /* خط سفلي */
+    padding-bottom: 0.5rem;
+    /* حشوة سفلية */
+}
+
+.tech-items {
+    /* عناصر التقنيات */
+    display: flex;
+    /* تخطيط مرن */
+    flex-wrap: wrap;
+    /* التفاف عند الضرورة */
+    gap: 1rem;
+    /* فراغات */
+    justify-content: center;
+    /* محاذاة أفقية */
+}
+
+.tech-item {
+    /* عنصر تقنية */
+    display: flex;
+    /* تخطيط مرن */
+    flex-direction: column;
+    /* اتجاه عمودي */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 0.5rem;
+    /* فراغات */
+    padding: 1rem;
+    /* حشوة داخلية */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    border-radius: var(--border-radius-small);
+    /* زوايا دائرية صغيرة */
+    transition: var(--transition);
+    /* انتقال سلس */
+    min-width: 100px;
+    /* أدنى عرض */
+}
+
+.tech-item:hover {
+    /* عنصر التقنية عند التمرير */
+    transform: translateY(-5px);
+    /* رفع للأعلى */
+    box-shadow: var(--shadow);
+    /* ظل */
+    background: var(--primary);
+    /* خلفية */
+    color: white;
+    /* نص أبيض */
+}
+
+.tech-item:hover .tech-icon-advanced {
+    /* أيقونة التقنية عند التمرير */
+    color: white;
+    /* لون أبيض */
+    transform: scale(1.2);
+    /* تكبير */
+}
+
+.tech-icon-advanced {
+    /* أيقونات التقنيات */
+    font-size: 2.5rem;
+    /* حجم كبير */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.tech-name {
+    /* اسم التقنية */
+    font-size: 0.9rem;
+    /* حجم خط صغير */
+    font-weight: 600;
+    /* سمك خط */
+    text-align: center;
+    /* محاذاة النص لليمين */
+}
+
+.tech-level {
+    /* شريط مستوى المهارة */
+    width: 100%;
+    /* عرض كامل */
+    height: 4px;
+    /* ارتفاع صغير */
+    background: rgba(85, 107, 47, 0.2);
+    /* خلفية شفافة */
+    border-radius: 2px;
+    /* زوايا دائرية */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+}
+
+.tech-level-bar {
+    /* مستوى المهارة الفعلي */
+    height: 100%;
+    /* ارتفاع كامل */
+    background: var(--primary);
+    /* لون من المتغيرات */
+    border-radius: 2px;
+    /* زوايا دائرية */
+    transition: width 1s ease;
+    /* انتقال سلس */
+}
+
+/* ===== قسم GitHub ===== */
+.github-section {
+    /* قسم GitHub */
+    background: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%);
+    /* خلفية متدرجة */
+}
+
+.github-header {
+    /* رأس قسم GitHub */
+    text-align: center;
+    /* محاذاة النص لليمين */
+    margin-bottom: 3rem;
+    /* هامش سفلي */
+}
+
+.github-stats {
+    /* إحصائيات GitHub */
+    display: flex;
+    /* تخطيط مرن */
+    justify-content: center;
+    /* محاذاة أفقية */
+    gap: 2rem;
+    /* فراغات */
+    margin-bottom: 3rem;
+    /* هامش سفلي */
+    flex-wrap: wrap;
+    /* التفاف عند الضرورة */
+}
+
+.stat-card {
+    /* بطاقة الإحصائيات */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    padding: 1.5rem 2rem;
+    /* حشوة داخلية */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    box-shadow: var(--shadow);
+    /* ظل */
+    text-align: center;
+    /* محاذاة النص لليمين */
+    min-width: 150px;
+    /* أدنى عرض */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.stat-card:hover {
+    /* بطاقة الإحصائيات عند التمرير */
+    transform: translateY(-5px);
+    /* رفع للأعلى */
+    box-shadow: var(--shadow-hover);
+    /* ظل أكبر */
+}
+
+.stat-number {
+    /* الرقم في الإحصائيات */
+    font-size: 2.5rem;
+    /* حجم كبير */
+    font-weight: 800;
+    /* سمك خط عريض */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    margin-bottom: 0.5rem;
+    /* هامش سفلي */
+}
+
+.stat-label {
+    /* تسمية الإحصائية */
+    color: var(--text-light);
+    /* لون النص الثانوي */
+    font-size: 0.9rem;
+    /* حجم خط صغير */
+}
+
+.repos-grid {
+    /* شبكة المستودعات */
+    display: grid;
+    /* تخطيط شبكي */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    /* أعمدة متجاوبة */
+    gap: 2rem;
+    /* فراغات */
+}
+
+.repo-card {
+    /* بطاقة المستودع */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    box-shadow: var(--shadow);
+    /* ظل */
+    transition: var(--transition);
+    /* انتقال سلس */
+    position: relative;
+    /* وضع نسبي */
+}
+
+.repo-card:hover {
+    /* بطاقة المستودع عند التمرير */
+    transform: translateY(-10px);
+    /* رفع للأعلى */
+    box-shadow: var(--shadow-hover);
+    /* ظل أكبر */
+}
+
+.repo-header {
+    /* رأس بطاقة المستودع */
+    padding: 1.5rem;
+    /* حشوة داخلية */
+    border-bottom: 1px solid rgba(85, 107, 47, 0.1);
+    /* خط سفلي */
+}
+
+.repo-title {
+    /* عنوان المستودع */
+    font-size: 1.3rem;
+    /* حجم خط */
+    margin-bottom: 0.5rem;
+    /* هامش سفلي */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 0.5rem;
+    /* فراغات */
+}
+
+.repo-title i {
+    /* أيقونة المستودع */
+    font-size: 1.1rem;
+    /* حجم خط */
+}
+
+.repo-description {
+    /* وصف المستودع */
+    color: var(--text-light);
+    /* لون النص الثانوي */
+    margin-bottom: 1rem;
+    /* هامش سفلي */
+    font-size: 0.95rem;
+    /* حجم خط صغير */
+    line-height: 1.5;
+    /* ارتفاع السطر */
+}
+
+.repo-meta {
+    /* معلومات المستودع */
+    display: flex;
+    /* تخطيط مرن */
+    gap: 1rem;
+    /* فراغات */
+    font-size: 0.85rem;
+    /* حجم خط صغير */
+    color: var(--text-light);
+    /* لون النص الثانوي */
+}
+
+.repo-meta span {
+    /* عنصر معلومات */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 0.3rem;
+    /* فراغات */
+}
+
+.repo-footer {
+    /* تذييل بطاقة المستودع */
+    padding: 1rem 1.5rem;
+    /* حشوة داخلية */
+    background: var(--bg);
+    /* خلفية من المتغيرات */
+    display: flex;
+    /* تخطيط مرن */
+    justify-content: space-between;
+    /* توزيع المساحة */
+    align-items: center;
+    /* محاذاة رأسية */
+}
+
+.repo-language {
+    /* لغة البرمجة */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 0.5rem;
+    /* فراغات */
+    font-size: 0.9rem;
+    /* حجم خط صغير */
+}
+
+.language-color {
+    /* لون اللغة */
+    width: 12px;
+    /* عرض صغير */
+    height: 12px;
+    /* ارتفاع صغير */
+    border-radius: 50%;
+    /* شكل دائري */
+    background: var(--primary);
+    /* لون من المتغيرات */
+}
+
+.repo-link {
+    /* رابط المستودع */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    text-decoration: none;
+    /* إزالة التزيين */
+    font-weight: 600;
+    /* سمك خط */
+    transition: var(--transition);
+    /* انتقال سلس */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 0.5rem;
+    /* فراغات */
+}
+
+.repo-link:hover {
+    /* رابط المستودع عند التمرير */
+    color: var(--primary-dark);
+    /* لون أغمق */
+}
+
+/* ===== قسم المشاريع المتقدم ===== */
+.projects-advanced {
+    /* قسم المشاريع */
+    background: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%);
+    /* خلفية متدرجة */
+}
+
+.projects-filter {
+    /* مرشحات المشاريع */
+    display: flex;
+    /* تخطيط مرن */
+    justify-content: center;
+    /* محاذاة أفقية */
+    flex-wrap: wrap;
+    /* التفاف عند الضرورة */
+    gap: 1rem;
+    /* فراغات */
+    margin-bottom: 3rem;
+    /* هامش سفلي */
+}
+
+.filter-btn {
+    /* أزرار التصفية */
+    padding: 0.7rem 1.5rem;
+    /* حشوة داخلية */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    border: 2px solid transparent;
+    /* حدود شفافة */
+    border-radius: 25px;
+    /* زوايا دائرية */
+    color: var(--text);
+    /* لون النص */
+    cursor: pointer;
+    /* مؤشر يد */
+    transition: var(--transition);
+    /* انتقال سلس */
+    font-weight: 500;
+    /* سمك خط */
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    /* أزرار التصفية النشطة وعند التمرير */
+    background: var(--primary);
+    /* خلفية */
+    color: white;
+    /* نص أبيض */
+    border-color: var(--primary);
+    /* لون الحدود */
+}
+
+.projects-grid-advanced {
+    /* شبكة المشاريع */
+    display: grid;
+    /* تخطيط شبكي */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    /* أعمدة متجاوبة */
+    gap: 2rem;
+    /* فراغات */
+}
+
+.project-card-advanced {
+    /* بطاقة المشروع */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    box-shadow: var(--shadow);
+    /* ظل */
+    transition: var(--transition);
+    /* انتقال سلس */
+    position: relative;
+    /* وضع نسبي */
+    cursor: pointer;
+    /* مؤشر يد */
+}
+
+.project-card-advanced:hover {
+    /* بطاقة المشروع عند التمرير */
+    transform: translateY(-10px);
+    /* رفع للأعلى */
+    box-shadow: var(--shadow-hover);
+    /* ظل أكبر */
+}
+
+.project-image-container {
+    /* حاوية صورة المشروع */
+    position: relative;
+    /* وضع نسبي */
+    overflow: hidden;
+    /* إخفاء المحتوى الزائد */
+    height: 250px;
+    /* ارتفاع ثابت */
+    background: var(--bg);
+    /* خلفية من المتغيرات */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+}
+
+.project-image {
+    /* صورة المشروع */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    object-fit: cover;
+    /* تغطية المساحة */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.project-image.placeholder {
+    /* الصورة البديلة */
+    width: 80px;
+    /* عرض صغير */
+    height: 80px;
+    /* ارتفاع صغير */
+    opacity: 0.5;
+    /* شفافية */
+}
+
+.project-card-advanced:hover .project-image {
+    /* صورة المشروع عند التمرير */
+    transform: scale(1.1);
+    /* تكبير */
+}
+
+.project-overlay-advanced {
+    /* طبقة overlay للمشروع */
+    position: absolute;
+    /* وضع مطلق */
+    top: 0;
+    /* أعلى الصورة */
+    left: 0;
+    /* أقصى اليسار */
+    width: 100%;
+    /* عرض كامل */
+    height: 100%;
+    /* ارتفاع كامل */
+    background: rgba(85, 107, 47, 0.9);
+    /* خلفية شبه شفافة */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+    opacity: 0;
+    /* غير مرئي */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.project-card-advanced:hover .project-overlay-advanced {
+    /* طبقة overlay عند التمرير */
+    opacity: 1;
+    /* مرئي */
+}
+
+.project-content-advanced {
+    /* محتوى المشروع */
+    padding: 1.5rem;
+    /* حشوة داخلية */
+}
+
+.project-title-advanced {
+    /* عنوان المشروع */
+    font-size: 1.3rem;
+    /* حجم خط */
+    margin-bottom: 0.5rem;
+    /* هامش سفلي */
+    color: var(--primary);
+    /* لون من المتغيرات */
+}
+
+.project-category {
+    /* فئة المشروع */
+    color: var(--text-light);
+    /* لون النص الثانوي */
+    font-size: 0.9rem;
+    /* حجم خط صغير */
+    margin-bottom: 1rem;
+    /* هامش سفلي */
+}
+
+.project-description-advanced {
+    /* وصف المشروع */
+    color: var(--text-light);
+    /* لون النص الثانوي */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+    font-size: 0.95rem;
+    /* حجم خط صغير */
+}
+
+.project-tech {
+    /* تقنيات المشروع */
+    display: flex;
+    /* تخطيط مرن */
+    flex-wrap: wrap;
+    /* التفاف عند الضرورة */
+    gap: 0.5rem;
+    /* فراغات */
+}
+
+.tech-tag {
+    /* علامة التقنية */
+    background: rgba(85, 107, 47, 0.1);
+    /* خلفية شفافة */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    padding: 0.3rem 0.8rem;
+    /* حشوة داخلية */
+    border-radius: 15px;
+    /* زوايا دائرية */
+    font-size: 0.8rem;
+    /* حجم خط صغير */
+    font-weight: 500;
+    /* سمك خط */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.tech-tag:hover {
+    /* علامة التقنية عند التمرير */
+    background: var(--primary);
+    /* خلفية */
+    color: white;
+    /* نص أبيض */
+}
+
+/* ===== قسم التواصل المتقدم ===== */
+.contact-advanced {
+    /* قسم التواصل */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+}
+
+.contact-container-advanced {
+    /* حاوية التواصل */
+    display: grid;
+    /* تخطيط شبكي */
+    grid-template-columns: 1fr 1fr;
+    /* عمودين متساويين */
+    gap: clamp(2rem, 4vw, 4rem);
+    /* فراغ متجاوب */
+}
+
+.contact-info-advanced {
+    /* معلومات التواصل */
+    display: flex;
+    /* تخطيط مرن */
+    flex-direction: column;
+    /* اتجاه عمودي */
+    gap: 2rem;
+    /* فراغات */
+}
+
+.contact-card {
+    /* بطاقة التواصل */
+    background: var(--bg);
+    /* خلفية من المتغيرات */
+    padding: 2rem;
+    /* حشوة داخلية */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    box-shadow: var(--shadow);
+    /* ظل */
+    transition: var(--transition);
+    /* انتقال سلس */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    gap: 1.5rem;
+    /* فراغات */
+    cursor: pointer;
+    /* مؤشر يد */
+}
+
+.contact-card:hover {
+    /* بطاقة التواصل عند التمرير */
+    transform: translateX(10px);
+    /* تحريك لليمين */
+    box-shadow: var(--shadow-hover);
+    /* ظل أكبر */
+}
+
+.contact-icon-advanced {
+    /* أيقونة التواصل */
+    width: 60px;
+    /* عرض ثابت */
+    height: 60px;
+    /* ارتفاع ثابت */
+    background: var(--primary);
+    /* خلفية */
+    border-radius: 50%;
+    /* شكل دائري */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+    color: white;
+    /* نص أبيض */
+    font-size: 1.5rem;
+    /* حجم خط */
+    flex-shrink: 0;
+    /* منع الانكماش */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.contact-card:hover .contact-icon-advanced {
+    /* أيقونة التواصل عند التمرير */
+    transform: scale(1.1);
+    /* تكبير */
+}
+
+.contact-details-advanced h3 {
+    /* عنوان بطاقة التواصل */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    margin-bottom: 0.5rem;
+    /* هامش سفلي */
+}
+
+.contact-form-advanced {
+    /* نموذج التواصل */
+    background: var(--bg);
+    /* خلفية من المتغيرات */
+    padding: 2.5rem;
+    /* حشوة داخلية */
+    border-radius: var(--border-radius);
+    /* زوايا دائرية */
+    box-shadow: var(--shadow);
+    /* ظل */
+}
+
+.form-group-advanced {
+    /* مجموعة الحقول */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+}
+
+.form-label-advanced {
+    /* تسمية الحقل */
+    display: block;
+    /* عرض كتلة */
+    margin-bottom: 0.5rem;
+    /* هامش سفلي */
+    color: var(--text);
+    /* لون النص */
+    font-weight: 500;
+    /* سمك خط */
+}
+
+.form-control-advanced {
+    /* حقل الإدخال */
+    width: 100%;
+    /* عرض كامل */
+    padding: 1rem;
+    /* حشوة داخلية */
+    border: 2px solid rgba(85, 107, 47, 0.2);
+    /* حدود */
+    border-radius: var(--border-radius-small);
+    /* زوايا دائرية صغيرة */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    color: var(--text);
+    /* لون النص */
+    font-size: 1rem;
+    /* حجم خط */
+    transition: var(--transition);
+    /* انتقال سلس */
+    font-family: 'Tajawal', sans-serif;
+    /* خط Tajawal */
+}
+
+.form-control-advanced:focus {
+    /* حقل الإدخال عند التركيز */
+    outline: none;
+    /* إزالة الحدود الافتراضية */
+    border-color: var(--primary);
+    /* لون الحدود */
+    box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.2);
+    /* ظل */
+}
+
+textarea.form-control-advanced {
+    /* حقل النص */
+    min-height: 150px;
+    /* أدنى ارتفاع */
+    resize: vertical;
+    /* السماح بالتغيير العمودي فقط */
+}
+
+/* ===== الفوتر ===== */
+.footer {
+    /* تذييل الصفحة */
+    background: var(--secondary);
+    /* خلفية من المتغيرات */
+    color: white;
+    /* نص أبيض */
+    padding: 4rem 0 2rem;
+    /* حشوة */
+    text-align: center;
+    /* محاذاة النص لليمين */
+}
+
+.footer-content {
+    /* محتوى الفوتر */
+    max-width: 1200px;
+    /* أقصى عرض */
+    margin: 0 auto;
+    /* توسيط */
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    /* حشوة متجاوبة */
+}
+
+.footer-logo {
+    /* شعار الفوتر */
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    /* حجم خط متجاوب */
+    font-weight: 800;
+    /* سمك خط عريض */
+    color: var(--primary);
+    /* لون من المتغيرات */
+    margin-bottom: 2rem;
+    /* هامش سفلي */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+    flex-wrap: wrap;
+    /* التفاف عند الضرورة */
+}
+
+.footer-logo i {
+    /* أيقونة الشعار */
+    margin-left: 1rem;
+    /* هامش أيسر */
+}
+
+.social-links {
+    /* روابط التواصل الاجتماعي */
+    display: flex;
+    /* تخطيط مرن */
+    justify-content: center;
+    /* محاذاة أفقية */
+    flex-wrap: wrap;
+    /* التفاف عند الضرورة */
+    gap: 1rem;
+    /* فراغات */
+    margin: 3rem 0;
+    /* هامش */
+}
+
+.social-link {
+    /* رابط التواصل الاجتماعي */
+    display: flex;
+    /* تخطيط مرن */
+    align-items: center;
+    /* محاذاة رأسية */
+    justify-content: center;
+    /* محاذاة أفقية */
+    width: 50px;
+    /* عرض ثابت */
+    height: 50px;
+    /* ارتفاع ثابت */
+    border-radius: 50%;
+    /* شكل دائري */
+    background: rgba(255, 255, 255, 0.1);
+    /* خلفية شفافة */
+    color: white;
+    /* نص أبيض */
+    font-size: 1.3rem;
+    /* حجم خط */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.social-link:hover {
+    /* رابط التواصل الاجتماعي عند التمرير */
+    background: var(--primary);
+    /* خلفية */
+    transform: translateY(-5px);
+    /* رفع للأعلى */
+}
+
+.copyright {
+    /* حقوق النشر */
+    margin-top: 3rem;
+    /* هامش علوي */
+    font-size: 0.9rem;
+    /* حجم خط صغير */
+    opacity: 0.8;
+    /* شفافية */
+    padding-top: 2rem;
+    /* حشوة علوية */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* خط علوي */
+}
+
+/* ===== الشريط الجانبي للهواتف ===== */
+.sidebar {
+    /* الشريط الجانبي */
+    position: fixed;
+    /* وضع ثابت */
+    top: 0;
+    /* أعلى الصفحة */
+    right: -100%;
+    /* خارج الشاشة من اليمين */
+    width: min(400px, 85vw);
+    /* عرض متجاوب */
+    height: 100%;
+    /* ارتفاع كامل */
+    background: var(--card-bg);
+    /* خلفية من المتغيرات */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    /* ظل */
+    z-index: 1100;
+    /* طبقة عالية */
+    transition: var(--transition);
+    /* انتقال سلس */
+    padding: 3rem 2rem;
+    /* حشوة داخلية */
+    overflow-y: auto;
+    /* تمرير عمودي */
+}
+
+.sidebar.active {
+    /* الشريط الجانبي النشط */
+    right: 0;
+    /* داخل الشاشة */
+}
+
+.sidebar-close {
+    /* زر إغلاق الشريط الجانبي */
+    position: absolute;
+    /* وضع مطلق */
+    top: 1.5rem;
+    /* من الأعلى */
+    left: 1.5rem;
+    /* من اليسار */
+    background: none;
+    /* إزالة الخلفية */
+    border: none;
+    /* إزالة الحدود */
+    font-size: 1.5rem;
+    /* حجم خط */
+    color: var(--text);
+    /* لون النص */
+    cursor: pointer;
+    /* مؤشر يد */
+    transition: var(--transition);
+    /* انتقال سلس */
+}
+
+.sidebar-close:hover {
+    /* زر الإغلاق عند التمرير */
+    color: var(--primary);
+    /* تغيير اللون */
+    transform: rotate(90deg);
+    /* دوران */
+}
+
+.sidebar-nav {
+    /* التنقل في الشريط الجانبي */
+    margin-top: 4rem;
+    /* هامش علوي */
+    list-style: none;
+    /* إزالة النقاط */
+}
+
+.sidebar-nav li {
+    /* عناصر قائمة الشريط الجانبي */
+    margin-bottom: 1.5rem;
+    /* هامش سفلي */
+}
+
+.sidebar-nav a {
+    /* روابط الشريط الجانبي */
+    text-decoration: none;
+    /* إزالة التزيين */
+    color: var(--text);
+    /* لون النص */
+    font-size: 1.3rem;
+    /* حجم خط */
+    font-weight: 600;
+    /* سمك خط */
+    display: block;
+    /* عرض كتلة */
+    padding: 0.8rem 0;
+    /* حشوة رأسية */
+    transition: var(--transition);
+    /* انتقال سلس */
+    position: relative;
+    /* وضع نسبي */
+}
+
+.sidebar-nav a:hover {
+    /* روابط الشريط الجانبي عند التمرير */
+    color: var(--primary);
+    /* تغيير اللون */
+    padding-right: 1rem;
+    /* حشوة يمينية */
+}
+
+/* ===== الأنيميشن ===== */
+@keyframes fadeInLeft {
+    /* أنيميشن الظهور من اليسار */
+    from {
+        opacity: 0;
+        /* غير مرئي */
+        transform: translateX(-50px);
+        /* خارج الشاشة من اليسار */
+    }
+    to {
+        opacity: 1;
+        /* مرئي */
+        transform: translateX(0);
+        /* في مكانه */
+    }
+}
+
+@keyframes fadeInRight {
+    /* أنيميشن الظهور من اليمين */
+    from {
+        opacity: 0;
+        /* غير مرئي */
+        transform: translateX(50px);
+        /* خارج الشاشة من اليمين */
+    }
+    to {
+        opacity: 1;
+        /* مرئي */
+        transform: translateX(0);
+        /* في مكانه */
+    }
+}
+
+@keyframes fadeInUp {
+    /* أنيميشن الظهور من الأسفل */
+    from {
+        opacity: 0;
+        /* غير مرئي */
+        transform: translateY(50px);
+        /* خارج الشاشة من الأسفل */
+    }
+    to {
+        opacity: 1;
+        /* مرئي */
+        transform: translateY(0);
+        /* في مكانه */
+    }
+}
+
+@keyframes pulse {
+    /* أنيميشن النبض */
+    0% {
+        transform: scale(1);
+        /* الحجم الطبيعي */
+    }
+    50% {
+        transform: scale(1.1);
+        /* تكبير */
+    }
+    100% {
+        transform: scale(1);
+        /* العودة للحجم الطبيعي */
+    }
+}
+
+@keyframes floatBubble {
+    /* أنيميشن طفو الدوائر */
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        /* في مكانه */
+    }
+    33% {
+        transform: translateY(-30px) rotate(5deg);
+        /* رفع ودوران */
+    }
+    66% {
+        transform: translateY(15px) rotate(-5deg);
+        /* خفض ودوران عكسي */
+    }
+}
+
+@keyframes popBubble {
+    /* أنيميشن انفجار الدوائر */
+    0% {
+        transform: scale(1);
+        /* الحجم الطبيعي */
+        opacity: 0.2;
+        /* شفافية */
+    }
+    50% {
+        transform: scale(1.2);
+        /* تكبير */
+        opacity: 0.1;
+        /* تقليل الشفافية */
+    }
+    100% {
+        transform: scale(0);
+        /* تصغير للصفر */
+        opacity: 0;
+        /* غير مرئي */
+    }
+}
+
+@keyframes glitch-1 {
+    /* تأثير الغليتش الأول */
+    0% {
+        transform: translate(0);
+        /* في مكانه */
+        opacity: 0.8;
+        /* شفافية */
+    }
+    20% {
+        transform: translate(-5px, 5px);
+        /* تحريك */
+        opacity: 0.6;
+        /* تقليل الشفافية */
+    }
+    40% {
+        transform: translate(-5px, -5px);
+        /* تحريك */
+        opacity: 0.4;
+        /* تقليل الشفافية */
+    }
+    60% {
+        transform: translate(5px, 5px);
+        /* تحريك */
+        opacity: 0.6;
+        /* زيادة الشفافية */
+    }
+    80% {
+        transform: translate(5px, -5px);
+        /* تحريك */
+        opacity: 0.8;
+        /* زيادة الشفافية */
+    }
+    100% {
+        transform: translate(0);
+        /* العودة للمكان */
+        opacity: 0.8;
+        /* شفافية */
+    }
+}
+
+@keyframes glitch-2 {
+    /* تأثير الغليتش الثاني */
+    0% {
+        transform: translate(0);
+        /* في مكانه */
+        opacity: 0.8;
+        /* شفافية */
+    }
+    20% {
+        transform: translate(5px, -5px);
+        /* تحريك */
+        opacity: 0.6;
+        /* تقليل الشفافية */
+    }
+    40% {
+        transform: translate(5px, 5px);
+        /* تحريك */
+        opacity: 0.4;
+        /* تقليل الشفافية */
+    }
+    60% {
+        transform: translate(-5px, -5px);
+        /* تحريك */
+        opacity: 0.6;
+        /* زيادة الشفافية */
+    }
+    80% {
+        transform: translate(-5px, 5px);
+        /* تحريك */
+        opacity: 0.8;
+        /* زيادة الشفافية */
+    }
+    100% {
+        transform: translate(0);
+        /* العودة للمكان */
+        opacity: 0.8;
+        /* شفافية */
+    }
+}
+
+@keyframes confetti-fall {
+    /* أنيميشن سقوط الكونفيتي */
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        /* بداية من الأعلى */
+        opacity: 1;
+        /* مرئي */
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        /* نزول مع دوران */
+        opacity: 0;
+        /* غير مرئي */
+    }
+}
+
+.fade-in {
+    /* فئة الظهور التدريجي */
+    opacity: 0;
+    /* غير مرئي */
+    transform: translateY(50px);
+    /* خارج الشاشة من الأسفل */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    /* انتقال سلس */
+}
+
+.fade-in.visible {
+    /* فئة الظهور التدريجي النشطة */
+    opacity: 1;
+    /* مرئي */
+    transform: translateY(0);
+    /* في مكانه */
+}
+
+/* ===== التجاوب للهواتف ===== */
+@media (max-width: 1200px) {
+    /* شاشات حتى 1200px */
+    .hero-content {
+        /* محتوى قسم البطل */
+        grid-template-columns: 1fr;
+        /* عمود واحد */
+        text-align: center;
+        /* محاذاة النص لليمين */
+        gap: 3rem;
+        /* فراغ */
+    }
+
+    .contact-container-advanced {
+        /* حاوية التواصل */
+        grid-template-columns: 1fr;
+        /* عمود واحد */
+    }
+}
+
+@media (max-width: 992px) {
+    /* شاشات حتى 992px */
+    .nav-links {
+        /* روابط التنقل */
+        display: none;
+        /* مخفي */
+    }
+
+    .menu-toggle {
+        /* زر قائمة الموبايل */
+        display: flex;
+        /* ظاهر */
+    }
+
+    .projects-grid-advanced {
+        /* شبكة المشاريع */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        /* أعمدة أصغر */
+    }
+
+    .repos-grid {
+        /* شبكة المستودعات */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        /* أعمدة أصغر */
+    }
+}
+
+@media (max-width: 768px) {
+    /* شاشات حتى 768px */
+    .tech-categories {
+        /* فئات التقنيات */
+        grid-template-columns: 1fr;
+        /* عمود واحد */
+    }
+
+    .projects-grid-advanced {
+        /* شبكة المشاريع */
+        grid-template-columns: 1fr;
+        /* عمود واحد */
+    }
+
+    .repos-grid {
+        /* شبكة المستودعات */
+        grid-template-columns: 1fr;
+        /* عمود واحد */
+    }
+
+    .contact-form-advanced {
+        /* نموذج التواصل */
+        padding: 1.5rem;
+        /* حشوة أصغر */
+    }
+
+    .contact-card {
+        /* بطاقة التواصل */
+        flex-direction: column;
+        /* اتجاه عمودي */
+        text-align: center;
+        /* محاذاة النص لليمين */
+    }
+
+    .github-stats {
+        /* إحصائيات GitHub */
+        gap: 1rem;
+        /* فراغات أصغر */
+    }
+
+    .stat-card {
+        /* بطاقة الإحصائيات */
+        min-width: 120px;
+        /* عرض أصغر */
+        padding: 1rem 1.5rem;
+        /* حشوة أصغر */
+    }
+
+    .stat-number {
+        /* الرقم في الإحصائيات */
+        font-size: 2rem;
+        /* حجم أصغر */
+    }
+
+    .copy-effect-content {
+        /* محتوى تأثير النسخ */
+        padding: 2rem 1rem;
+        /* حشوة أصغر */
+    }
+
+    .copy-effect-text {
+        /* نص تأثير النسخ */
+        font-size: 1.5rem;
+        /* حجم أصغر */
+    }
+}
+
+@media (max-width: 480px) {
+    /* شاشات حتى 480px */
+    .hero-buttons {
+        /* أزرار قسم البطل */
+        display: flex;
+        /* تخطيط مرن */
+        flex-direction: column;
+        /* اتجاه عمودي */
+        gap: 1rem;
+        /* فراغات */
+    }
+
+    .btn-outline {
+        /* الأزرار ذات الإطار */
+        margin-right: 0;
+        /* إزالة الهامش */
+    }
+
+    .projects-filter {
+        /* مرشحات المشاريع */
+        flex-direction: column;
+        /* اتجاه عمودي */
+        align-items: center;
+        /* محاذاة أفقية */
+    }
+
+    .filter-btn {
+        /* أزرار التصفية */
+        width: 100%;
+        /* عرض كامل */
+        max-width: 200px;
+        /* أقصى عرض */
+    }
+
+    .github-stats {
+        /* إحصائيات GitHub */
+        flex-direction: column;
+        /* اتجاه عمودي */
+        align-items: center;
+        /* محاذاة أفقية */
+    }
+
+    .stat-card {
+        /* بطاقة الإحصائيات */
+        width: 100%;
+        /* عرض كامل */
+        max-width: 200px;
+        /* أقصى عرض */
+    }
+}
