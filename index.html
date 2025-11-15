@@ -1,620 +1,370 @@
 <!DOCTYPE html>
-<!-- تعريف نوع المستند كلغة HTML5 -->
 <html lang="ar" dir="rtl">
-<!-- بداية HTML مع تحديد اللغة العربية والاتجاه من اليمين لليسار -->
-
 <head>
-    <!-- بداية قسم الرأس -->
     <meta charset="UTF-8">
-    <!-- تحديد ترميز الأحرف UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- إعداد viewport للتجاوب مع الأجهزة المختلفة -->
     <title>ABDESSAMAD GUIADIRI | مطور واجهات أمامية متخصص</title>
-    <!-- عنوان الصفحة في المتصفح -->
-    
-    <!-- روابط المكتبات الخارجية -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- مكتبة Font Awesome للأيقونات -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <!-- خط Tajawal للغة العربية -->
-    
-    <!-- مكتبات GSAP للأنيميشن -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <!-- مكتبة GSAP الأساسية -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <!-- إضافة ScrollTrigger لـ GSAP -->
-    
-    <!-- ربط ملفات CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- ملف الأنماط الرئيسي -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- بداية قسم المحتوى المرئي -->
-    
-    <!-- شريط التقدم -->
-    <div class="progress-bar" id="progressBar"></div>
-    <!-- شريط التقدم أثناء التمرير -->
-
-    <!-- دوائر الخلفية المتحركة -->
-    <div class="floating-bubbles" id="floatingBubbles"></div>
-    <!-- دوائر متحركة في الخلفية -->
-
-    <!-- تأثير نسخ البريد الإلكتروني -->
-    <div class="copy-effect" id="copyEffect">
-        <!-- تأثير كامل الشاشة عند نسخ البريد -->
-        <div class="copy-effect-content">
-            <!-- محتوى تأثير النسخ -->
-            <div class="copy-effect-text">تم نسخ البريد الإلكتروني</div>
-            <!-- نص التأكيد -->
-            <div class="btn btn-outline" style="background: white; color: var(--primary);" onclick="closeCopyEffect()">متابعة</div>
-            <!-- زر المتابعة -->
-        </div>
-    </div>
-
-    <!-- رسالة النجاح -->
-    <div class="success-message" id="successMessage">
-        <!-- نافذة النجاح -->
-        <div class="success-icon">
-            <!-- أيقونة النجاح -->
-            <i class="fas fa-check-circle"></i>
-            <!-- أيقونة علامة الصح -->
-        </div>
-        <div class="success-text">تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.</div>
-        <!-- نص رسالة النجاح -->
-        <button class="btn" onclick="closeSuccessMessage()">متابعة</button>
-        <!-- زر إغلاق النافذة -->
-    </div>
-
-    <!-- الشريط العلوي -->
-    <header class="navbar" id="navbar">
-        <!-- شريط التنقل العلوي -->
-        <div class="logo" id="logo">
-            <!-- الشعار -->
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
             <i class="fas fa-code"></i>
-            <!-- أيقونة الكود -->
             <span>ABDESSAMAD</span>
-            <!-- نص الشعار -->
         </div>
-        
-        <nav>
-            <!-- قسم التنقل -->
-            <ul class="nav-links">
-                <!-- قائمة روابط التنقل -->
-                <li><a href="#home">الرئيسية</a></li>
-                <!-- رابط الرئيسية -->
-                <li><a href="#about">عني</a></li>
-                <!-- رابط عني -->
-                <li><a href="#tech">التقنيات</a></li>
-                <!-- رابط التقنيات -->
-                <li><a href="#github">مشاريع GitHub</a></li>
-                <!-- رابط مشاريع GitHub -->
-                <li><a href="#projects">المشاريع</a></li>
-                <!-- رابط المشاريع -->
-                <li><a href="#contact">التواصل</a></li>
-                <!-- رابط التواصل -->
-            </ul>
-        </nav>
-        
         <div class="nav-actions">
-            <!-- قسم الأزرار الإضافية -->
-            <button class="language-toggle" id="languageToggle">
-                <!-- زر تبديل اللغة -->
+            <button class="control-btn" id="languageToggle">
                 <i class="fas fa-language"></i>
-                <!-- أيقونة اللغة -->
+                <span class="tooltip">English / العربية</span>
             </button>
-            <button class="theme-toggle" id="themeToggle">
-                <!-- زر تبديل الوضع -->
+            <button class="control-btn" id="themeToggle">
                 <i class="fas fa-moon"></i>
-                <!-- أيقونة القمر -->
-            </button>
-            <button class="menu-toggle" id="menuToggle">
-                <!-- زر القائمة للموبايل -->
-                <i class="fas fa-bars"></i>
-                <!-- أيقونة القائمة -->
+                <span class="tooltip">الوضع الليلي</span>
             </button>
         </div>
     </header>
 
-    <!-- الشريط الجانبي للهواتف -->
-    <div class="sidebar" id="sidebar">
-        <!-- القائمة الجانبية للموبايل -->
-        <button class="sidebar-close" id="sidebarClose">
-            <!-- زر إغلاق الشريط الجانبي -->
-            <i class="fas fa-times"></i>
-            <!-- أيقونة الإغلاق -->
-        </button>
-        <ul class="sidebar-nav">
-            <!-- قائمة التنقل الجانبية -->
-            <li><a href="#home">الرئيسية</a></li>
-            <!-- رابط الرئيسية -->
-            <li><a href="#about">عني</a></li>
-            <!-- رابط عني -->
-            <li><a href="#tech">التقنيات</a></li>
-            <!-- رابط التقنيات -->
-            <li><a href="#github">مشاريع GitHub</a></li>
-            <!-- رابط مشاريع GitHub -->
-            <li><a href="#projects">المشاريع</a></li>
-            <!-- رابط المشاريع -->
-            <li><a href="#contact">التواصل</a></li>
-            <!-- رابط التواصل -->
-        </ul>
+    <!-- أزرار جانبية -->
+    <button class="side-toggle chat-toggle" id="chatToggle">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <button class="side-toggle color-toggle" id="colorToggle">
+        <i class="fas fa-palette"></i>
+    </button>
+
+    <!-- لوحة الألوان -->
+    <div class="color-palette" id="colorPalette">
+        <div class="color-option color-1 active" data-color="1" style="background: #556B2F"></div>
+        <div class="color-option color-2" data-color="2" style="background: #2F556B"></div>
+        <div class="color-option color-3" data-color="3" style="background: #6B2F55"></div>
+        <div class="color-option color-4" data-color="4" style="background: #2F6B55"></div>
+        <div class="color-option color-5" data-color="5" style="background: #6B552F"></div>
+        <div class="color-option color-6" data-color="6" style="background: #4B2F6B"></div>
+        <div class="color-option color-7" data-color="7" style="background: #2F4B6B"></div>
+        <div class="color-option color-8" data-color="8" style="background: #6B2F4B"></div>
+        <div class="color-option color-9" data-color="9" style="background: #2F6B4B"></div>
     </div>
 
-    <!-- المحتوى الرئيسي -->
-    <main>
-        <!-- المحتوى الأساسي للصفحة -->
-        
-        <!-- قسم البطل -->
-        <section class="hero" id="home">
-            <!-- قسم البطل الرئيسي -->
-            <div class="container">
-                <!-- حاوية المحتوى -->
-                <div class="hero-content">
-                    <!-- محتوى قسم البطل -->
-                    <div class="hero-text">
-                        <!-- النصوص في قسم البطل -->
-                        <h1>ABDESSAMAD GUIADIRI</h1>
-                        <!-- الاسم الرئيسي -->
-                        <h2 class="title">مطور واجهات أمامية متخصص</h2>
-                        <!-- الوظيفة -->
-                        <p class="description">
-                            <!-- الوصف -->
-                            مطور واجهات أمامية محترف مع خبرة في React, Angular, Vue.js, Node.js, TypeScript. 
-                            أبدع في تحويل الأفكار إلى تطبيقات ويب تفاعلية مع تجربة مستخدم استثنائية.
-                            <br><br>
-                            <!-- سطرين فارغين -->
-                            مع أكثر من 3 سنوات من الخبرة في تطوير واجهات المستخدم، أساعد الشركات والافراد في تحويل رؤيتهم إلى واقع رقمي ملموس. كل مشروع هو قصة جديدة أرويها من خلال الكود والتصميم.
+    <!-- نافذة الشات -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h3>شات بوت - عبد الصمد</h3>
+            <button class="close-chat" id="closeChat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="message bot-message">
+                مرحبًا! أنا الشات بوت الخاص بعبد الصمد. يمكنني الإجابة على أسئلتك عنه. اختر سؤالاً من الأسئلة المقترحة أو اكتب سؤالك الخاص.
+            </div>
+        </div>
+        <div class="suggested-questions" id="suggestedQuestions">
+            <button class="question-btn" data-question="ما هي مهاراتك التقنية؟">ما هي مهاراتك التقنية؟</button>
+            <button class="question-btn" data-question="ما هي مشاريعك السابقة؟">ما هي مشاريعك السابقة؟</button>
+            <button class="question-btn" data-question="كيف يمكنني التواصل معك؟">كيف يمكنني التواصل معك؟</button>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="اكتب سؤالك هنا...">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>ABDESSAMAD GUIADIRI</h1>
+                    <h2 class="title">مطور واجهات أمامية متخصص</h2>
+                    <p class="description">
+                        مطور واجهات أمامية محترف مع خبرة في React, Angular, Vue.js, Node.js, TypeScript. 
+                        أبدع في تحويل الأفكار إلى تطبيقات ويب تفاعلية مع تجربة مستخدم استثنائية.
+                        <br><br>
+                        مع أكثر من 3 سنوات من الخبرة في تطوير واجهات المستخدم، أساعد الشركات والافراد في تحويل رؤيتهم إلى واقع رقمي ملموس. كل مشروع هو قصة جديدة أرويها من خلال الكود والتصميم.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-outline">مشاريعي</a>
+                        <a href="#contact" class="btn">تواصل معي</a>
+                    </div>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-img-wrapper">
+                        <img src="image/asg.jpg" alt="ABDESSAMAD GUIADIRI" class="profile-img" id="profileImg">
+                        <div class="profile-overlay">
+                            <span>انقر لنسخ البريد الإلكتروني</span>
+                        </div>
+                    </div>
+                    <div class="copy-popup" id="copyPopup">تم نسخ البريد الإلكتروني!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tech">
+        <div class="container">
+            <h2 class="section-title">التقنيات التي أستخدمها</h2>
+            <div class="tech-stack">
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>Frontend Technologies</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <i class="fab fa-react tech-icon"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-angular tech-icon"></i>
+                                <span>Angular</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-vuejs tech-icon"></i>
+                                <span>Vue.js</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js tech-icon"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-html5 tech-icon"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-css3-alt tech-icon"></i>
+                                <span>CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Backend & Database</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <i class="fab fa-node-js tech-icon"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-python tech-icon"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database tech-icon"></i>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-server tech-icon"></i>
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>أدوات التطوير</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <i class="fab fa-git tech-icon"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-docker tech-icon"></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-figma tech-icon"></i>
+                                <span>Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="github" class="github-section">
+        <div class="container">
+            <h2 class="section-title">مشاريعي على GitHub</h2>
+            
+            <div class="github-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalRepos">0</div>
+                    <div class="stat-label">المستودعات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalStars">0</div>
+                    <div class="stat-label">النجوم</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalForks">0</div>
+                    <div class="stat-label">الفروع</div>
+                </div>
+            </div>
+            
+            <div class="github-filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
+                <button class="filter-btn" data-filter="HTML">HTML</button>
+                <button class="filter-btn" data-filter="CSS">CSS</button>
+            </div>
+            
+            <div class="repos-grid" id="reposGrid">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>جاري تحميل المشاريع...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">مشاريعي الحقيقية</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="honeyempire.jpg" alt="Honey Empire" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Honey Empire</h3>
+                        <p class="project-description">
+                            متجر إلكتروني متكامل متخصص في بيع العسل الطبيعي ومنتجات النحل. تم تصميم الموقع لتقديم تجربة تسوق فريدة مع التركيز على جودة المنتجات وأصالتها.
                         </p>
-                        <div class="hero-buttons">
-                            <!-- أزرار قسم البطل -->
-                            <a href="#projects" class="btn btn-outline glitch-effect" data-text="مشاريعي">مشاريعي</a>
-                            <!-- زر المشاريع -->
-                            <a href="#contact" class="btn glitch-effect" data-text="تواصل معي">تواصل معي</a>
-                            <!-- زر التواصل -->
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <!-- صورة قسم البطل -->
-                        <div class="profile-container" id="profileContainer">
-                            <!-- حاوية الصورة الشخصية -->
-                            <img src="image/asg.jpg" alt="ABDESSAMAD GUIADIRI" class="profile-img">
-                            <!-- الصورة الشخصية -->
-                            <div class="profile-overlay">انقر لنسخ البريد الإلكتروني</div>
-                            <!-- طبقة overlay للصورة -->
-                            <div class="copy-popup" id="copyPopup">تم النسخ!</div>
-                            <!-- نافذة منبثقة للنسخ -->
+                </div>
+
+                <div class="project-card">
+                    <img src="abdessamadcloud.jpg" alt="Abdessamad Cloud" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Abdessamad Cloud</h3>
+                        <p class="project-description">
+                            منصة متكاملة تقدم خدمات استضافة الويب والحلول السحابية للشركات والأفراد. تم تطوير واجهة مستخدم بديهية تعرض الخدمات والمميزات بشكل واضح.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Netlify</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="gameasg.jpg" alt="GameASG Landing" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">GameASG Landing Page</h3>
+                        <p class="project-description">
+                            صفحة هبوط مخصصة لمنصة ألعاب إلكترونية، تم تصميمها لجذب اللاعبين وتعزيز تجربة المستخدم. تحتوي على أقسام متنوعة تعرض ميزات المنصة وألعابها.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">UI/UX</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- قسم التقنيات المتقدم -->
-        <section id="tech" class="fade-in">
-            <!-- قسم التقنيات -->
-            <div class="container">
-                <!-- حاوية المحتوى -->
-                <h2 class="section-title">التقنيات التي أستخدمها</h2>
-                <!-- عنوان القسم -->
-                <div class="tech-stack-advanced">
-                    <!-- حاوية التقنيات -->
-                    <div class="tech-categories">
-                        <!-- فئات التقنيات -->
-                        <div class="tech-category-advanced">
-                            <!-- فئة التقنيات الأمامية -->
-                            <h3>Frontend Technologies</h3>
-                            <!-- عنوان الفئة -->
-                            <div class="tech-items">
-                                <!-- عناصر التقنيات -->
-                                <div class="tech-item">
-                                    <!-- عنصر تقنية -->
-                                    <i class="fab fa-react tech-icon-advanced"></i>
-                                    <!-- أيقونة React -->
-                                    <span class="tech-name">React</span>
-                                    <!-- اسم التقنية -->
-                                    <div class="tech-level">
-                                        <!-- شريط مستوى المهارة -->
-                                        <div class="tech-level-bar" style="width: 95%"></div>
-                                        <!-- مستوى المهارة 95% -->
-                                    </div>
-                                </div>
-                                <!-- تكرار نفس النمط لباقي التقنيات -->
-                                <div class="tech-item">
-                                    <i class="fab fa-angular tech-icon-advanced"></i>
-                                    <span class="tech-name">Angular</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-vuejs tech-icon-advanced"></i>
-                                    <span class="tech-name">Vue.js</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-js tech-icon-advanced"></i>
-                                    <span class="tech-name">JavaScript</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 98%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-html5 tech-icon-advanced"></i>
-                                    <span class="tech-name">HTML5</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 99%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-css3-alt tech-icon-advanced"></i>
-                                    <span class="tech-name">CSS3</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 97%"></div>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card" id="emailCard">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        
-                        <div class="tech-category-advanced">
-                            <!-- فئة التقنيات الخلفية -->
-                            <h3>Backend & Database</h3>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <i class="fab fa-node-js tech-icon-advanced"></i>
-                                    <span class="tech-name">Node.js</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 88%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-python tech-icon-advanced"></i>
-                                    <span class="tech-name">Python</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-database tech-icon-advanced"></i>
-                                    <span class="tech-name">MongoDB</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 82%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-server tech-icon-advanced"></i>
-                                    <span class="tech-name">MySQL</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-aws tech-icon-advanced"></i>
-                                    <span class="tech-name">AWS</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 70%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tech-category-advanced">
-                            <!-- فئة أدوات التطوير -->
-                            <h3>أدوات التطوير</h3>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <i class="fab fa-git tech-icon-advanced"></i>
-                                    <span class="tech-name">Git</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-npm tech-icon-advanced"></i>
-                                    <span class="tech-name">NPM</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-docker tech-icon-advanced"></i>
-                                    <span class="tech-name">Docker</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-figma tech-icon-advanced"></i>
-                                    <span class="tech-name">Figma</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fas fa-terminal tech-icon-advanced"></i>
-                                    <span class="tech-name">Terminal</span>
-                                    <div class="tech-level">
-                                        <div class="tech-level-bar" style="width: 92%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="contact-details">
+                            <h3>البريد الإلكتروني</h3>
+                            <p>abdessamadguia11@gmail.com</p>
                         </div>
                     </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>رقم الهاتف</h3>
+                            <p>+212778-9463</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>العنوان</h3>
+                            <p>المغرب</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الموضوع" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="الرسالة" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- قسم GitHub -->
-        <section id="github" class="github-section fade-in">
-            <!-- قسم مشاريع GitHub -->
-            <div class="container">
-                <h2 class="section-title">مشاريعي على GitHub</h2>
-                <!-- عنوان القسم -->
-                
-                <div class="github-header">
-                    <!-- رأس قسم GitHub -->
-                    <p>هذه مجموعة من مشاريعي المفتوحة المصدر على GitHub التي تعكس مهاراتي وتطوري في مجال البرمجة.</p>
-                    <!-- وصف القسم -->
-                </div>
-                
-                <div class="github-stats">
-                    <!-- إحصائيات GitHub -->
-                    <div class="stat-card">
-                        <!-- بطاقة الإحصائيات -->
-                        <div class="stat-number" id="totalRepos">15</div>
-                        <!-- عدد المستودعات -->
-                        <div class="stat-label">المستودعات</div>
-                        <!-- تسمية الإحصائية -->
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalStars">28</div>
-                        <!-- عدد النجوم -->
-                        <div class="stat-label">النجوم</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalForks">12</div>
-                        <!-- عدد الفروع -->
-                        <div class="stat-label">الفروع</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3+</div>
-                        <!-- سنوات الخبرة -->
-                        <div class="stat-label">سنوات من الخبرة</div>
-                    </div>
-                </div>
-                
-                <div class="repos-grid" id="reposGrid">
-                    <!-- شبكة المستودعات -->
-                    <!-- سيتم ملء هذا القسم ديناميكيًا باستخدام JavaScript -->
-                </div>
-            </div>
-        </section>
+    <!-- تأثير الاحتفال -->
+    <div class="celebration" id="celebration">
+        <div class="celebration-content">
+            <h2>🎉 تم إرسال رسالتك بنجاح!</h2>
+            <p>شكراً لتواصلك معي، سأرد عليك في أقرب وقت ممكن.</p>
+            <button id="closeCelebration">متابعة</button>
+        </div>
+    </div>
 
-        <!-- قسم المشاريع المتقدم -->
-        <section id="projects" class="projects-advanced fade-in">
-            <!-- قسم المشاريع -->
-            <div class="container">
-                <h2 class="section-title">مشاريعي الحقيقية</h2>
-                <!-- عنوان القسم -->
-                <div class="projects-filter">
-                    <!-- مرشحات المشاريع -->
-                    <button class="filter-btn active" data-filter="all">الكل</button>
-                    <!-- زر عرض الكل -->
-                    <button class="filter-btn" data-filter="ecommerce">متاجر إلكترونية</button>
-                    <!-- زر المتاجر الإلكترونية -->
-                    <button class="filter-btn" data-filter="landing">صفحات هبوط</button>
-                    <!-- زر صفحات الهبوط -->
-                    <button class="filter-btn" data-filter="cloud">خدمات سحابية</button>
-                    <!-- زر الخدمات السحابية -->
-                </div>
-                <div class="projects-grid-advanced">
-                    <!-- شبكة المشاريع -->
-                    
-                    <!-- مشروع Honey Empire -->
-                    <div class="project-card-advanced" data-category="ecommerce">
-                        <!-- بطاقة المشروع -->
-                        <div class="project-image-container">
-                            <!-- حاوية صورة المشروع -->
-                            <img src="image/honeyempire.png" alt="Honey Empire" class="project-image" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMjAwIiByPSI0MCIgZmlsbD0iIzU1NmIyZiIvPjx0ZXh0IHg9IjMwMCIgeT0iMjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM1NTZiMmYiPkhvbmV5IEVtcGlyZTwvdGV4dD48L3N2Zz4='; this.classList.add('placeholder')">
-                            <!-- صورة المشروع مع fallback -->
-                            <div class="project-overlay-advanced">
-                                <!-- طبقة overlay للمشروع -->
-                                <a href="https://honeyempire.netlify.app" target="_blank" class="btn">زيارة الموقع</a>
-                                <!-- رابط زيارة الموقع -->
-                            </div>
-                        </div>
-                        <div class="project-content-advanced">
-                            <!-- محتوى المشروع -->
-                            <h3 class="project-title-advanced">Honey Empire</h3>
-                            <!-- عنوان المشروع -->
-                            <div class="project-category">متجر إلكتروني • عسل طبيعي</div>
-                            <!-- فئة المشروع -->
-                            <p class="project-description-advanced">
-                                <!-- وصف المشروع -->
-                                متجر إلكتروني متكامل متخصص في بيع العسل الطبيعي ومنتجات النحل. تم تصميم الموقع لتقديم تجربة تسوق فريدة مع التركيز على جودة المنتجات وأصالتها.
-                                <br><br>
-                                <strong>المميزات:</strong> تصميم متجاوب، نظام تصفية المنتجات، عربة تسوق متكاملة، تكامل مع أنظمة الدفع.
-                                <!-- مميزات المشروع -->
-                            </p>
-                            <div class="project-tech">
-                                <!-- تقنيات المشروع -->
-                                <span class="tech-tag">HTML5</span>
-                                <!-- علامة تقنية -->
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">Netlify</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- مشروع Abdessamad Cloud -->
-                    <div class="project-card-advanced" data-category="cloud">
-                        <!-- نفس الهيكل للمشاريع الأخرى -->
-                        <div class="project-image-container">
-                            <img src="image/abdessamadcloud.png" alt="Abdessamad Cloud" class="project-image" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMjAwIiByPSI0MCIgZmlsbD0iIzU1NmIyZiIvPjx0ZXh0IHg9IjMwMCIgeT0iMjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM1NTZiMmYiPkNsb3VkIFNlcnZpY2VzPC90ZXh0Pjwvc3ZnPg=='; this.classList.add('placeholder')">
-                            <div class="project-overlay-advanced">
-                                <a href="https://abdessamadcloud.netlify.app" target="_blank" class="btn">زيارة الموقع</a>
-                            </div>
-                        </div>
-                        <div class="project-content-advanced">
-                            <h3 class="project-title-advanced">Abdessamad Cloud</h3>
-                            <div class="project-category">خدمات سحابية • استضافة ويب</div>
-                            <p class="project-description-advanced">
-                                منصة متكاملة تقدم خدمات استضافة الويب والحلول السحابية للشركات والأفراد. تم تطوير واجهة مستخدم بديهية تعرض الخدمات والمميزات بشكل واضح.
-                                <br><br>
-                                <strong>المميزات:</strong> تصميم احترافي، صفحات الخدمات التفصيلية، نموذج تواصل متكامل، تحسين لمحركات البحث.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Netlify</span>
-                                <span class="tech-tag">SEO</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- مشروع GameASG Landing -->
-                    <div class="project-card-advanced" data-category="landing">
-                        <div class="project-image-container">
-                            <img src="image/gameasg.png" alt="GameASG Landing" class="project-image" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMjAwIiByPSI0MCIgZmlsbD0iIzU1NmIyZiIvPjx0ZXh0IHg9IjMwMCIgeT0iMjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM1NTZiMmYiPkdhbWluZyBQbGF0Zm9ybTwvdGV4dD48L3N2Zz4='; this.classList.add('placeholder')">
-                            <div class="project-overlay-advanced">
-                                <a href="https://gameasg-landing.netlify.app" target="_blank" class="btn">زيارة الموقع</a>
-                            </div>
-                        </div>
-                        <div class="project-content-advanced">
-                            <h3 class="project-title-advanced">GameASG Landing Page</h3>
-                            <div class="project-category">صفحة هبوط • ألعاب إلكترونية</div>
-                            <p class="project-description-advanced">
-                                صفحة هبوط مخصصة لمنصة ألعاب إلكترونية، تم تصميمها لجذب اللاعبين وتعزيز تجربة المستخدم. تحتوي على أقسام متنوعة  تعرض ميزات المنصة وألعابها.
-                                <br><br>
-                                <strong>المميزات:</strong> تصميم جذاب، تحميل سريع، أقسام تفاعلية، تكامل مع وسائل التواصل الاجتماعي، نموذج اشتراك.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Netlify</span>
-                                <span class="tech-tag">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم التواصل المتقدم -->
-        <section id="contact" class="contact-advanced fade-in">
-            <!-- قسم التواصل -->
-            <div class="container">
-                <h2 class="section-title">تواصل معي</h2>
-                <!-- عنوان القسم -->
-                <div class="contact-container-advanced">
-                    <!-- حاوية التواصل -->
-                    <div class="contact-info-advanced">
-                        <!-- معلومات التواصل -->
-                        <div class="contact-card">
-                            <!-- بطاقة التواصل -->
-                            <div class="contact-icon-advanced">
-                                <!-- أيقونة التواصل -->
-                                <i class="fas fa-envelope"></i>
-                                <!-- أيقونة البريد -->
-                            </div>
-                            <div class="contact-details-advanced">
-                                <!-- تفاصيل التواصل -->
-                                <h3>البريد الإلكتروني</h3>
-                                <!-- نوع التواصل -->
-                                <p>abdessamadguia11@gmail.com</p>
-                                <!-- قيمة التواصل -->
-                            </div>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon-advanced">
-                                <i class="fas fa-phone"></i>
-                                <!-- أيقونة الهاتف -->
-                            </div>
-                            <div class="contact-details-advanced">
-                                <h3>رقم الهاتف</h3>
-                                <p>+212778449363</p>
-                            </div>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon-advanced">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <!-- أيقونة الموقع -->
-                            </div>
-                            <div class="contact-details-advanced">
-                                <h3>العنوان</h3>
-                                <p>المغرب</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-form-advanced">
-                        <!-- نموذج التواصل -->
-                        <form id="contactForm">
-                            <!-- نموذج HTML -->
-                            <div class="form-group-advanced">
-                                <!-- مجموعة الحقول -->
-                                <label for="name" class="form-label-advanced">الاسم الكامل</label>
-                                <!-- تسمية الحقل -->
-                                <input type="text" class="form-control-advanced" id="name" required>
-                                <!-- حقل الإدخال -->
-                            </div>
-                            <div class="form-group-advanced">
-                                <label for="email" class="form-label-advanced">البريد الإلكتروني</label>
-                                <input type="email" class="form-control-advanced" id="email" required>
-                            </div>
-                            <div class="form-group-advanced">
-                                <label for="subject" class="form-label-advanced">الموضوع</label>
-                                <input type="text" class="form-control-advanced" id="subject" required>
-                            </div>
-                            <div class="form-group-advanced">
-                                <label for="message" class="form-label-advanced">الرسالة</label>
-                                <textarea class="form-control-advanced" id="message" required></textarea>
-                                <!-- حقل النص -->
-                            </div>
-                            <button type="submit" class="btn glitch-effect" data-text="إرسال الرسالة">إرسال الرسالة</button>
-                            <!-- زر الإرسال -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- الفوتر -->
+    <!-- Footer -->
     <footer class="footer">
-        <!-- تذييل الصفحة -->
-        <div class="footer-content">
-            <!-- محتوى الفوتر -->
-            <div class="footer-logo">
-                <!-- شعار الفوتر -->
-                <i class="fas fa-code"></i>
-                <!-- أيقونة الكود -->
-                <span>ABDESSAMAD GUIADIRI</span>
-                <!-- النص -->
-            </div>
+        <div class="container">
             <div class="social-links">
-                <!-- روابط التواصل الاجتماعي -->
-                <a href="https://www.facebook.com/share/1Bd23WoEvJ/" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <!-- رابط Facebook -->
-                <a href="https://github.com/abdessamad159" class="social-link"><i class="fab fa-github"></i></a>
-                <!-- رابط GitHub -->
-                <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" class="social-link"><i class="fab fa-instagram"></i></a> 
-                <!-- رابط Instagram -->
-                <a href="https://www.fr.freelancer.com/u/Abdessamadguia15" class="social-link"><i class="fa fa-facebook"></i></a>
-                <!-- رابط freelancer -->
+                <a href="https://www.facebook.com/share/1A3HitD8RM/" class="social-link" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://khamsat.com/user/abdessamad_guia" class="social-link" target="_blank">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="https://github.com/abdessamad159" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://mostaql.com/u/Abdessamad_gui1" class="social-link" target="_blank">
+                    <i class="fas fa-briefcase"></i>
+                </a>
+                <a href="https://www.freelancer.com/u/Abdessamadguia15" class="social-link" target="_blank">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
-            <p class="copyright">©2025 ABDESSAMAD GUIADIRI - جميع الحقوق محفوظة</p>
-            <!-- حقوق النشر -->
+            <p>©2025 ABDESSAMAD GUIADIRI - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 
-    <!-- ربط ملف JavaScript -->
     <script src="script.js"></script>
-    <!-- ملف JavaScript الرئيسي -->
 </body>
 </html>

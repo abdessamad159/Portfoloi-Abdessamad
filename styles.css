@@ -1,2414 +1,1159 @@
-/* ===== متغيرات CSS الأساسية ===== */
 :root {
-    /* تعريف المتغيرات الأساسية للوضع النهاري */
     --primary: #556B2F;
-    /* اللون الأساسي - أخضر زيتوني */
     --primary-dark: #3A4A1F;
-    /* اللون الأساسي الداكن */
     --primary-light: #8A9A5B;
-    /* اللون الأساسي الفاتح */
-    --primary-glow: rgba(85, 107, 47, 0.6);
-    /* توهج اللون الأساسي */
     --secondary: #2F2F2F;
-    /* اللون الثانوي - رمادي داكن */
     --accent: #8FBC8F;
-    /* لون التمييز - أخضر فاتح */
-    --accent-glow: rgba(143, 188, 143, 0.6);
-    /* توهج لون التمييز */
     --text: #333333;
-    /* لون النص الأساسي */
     --text-light: #777777;
-    /* لون النص الثانوي */
     --bg: #F8F9FA;
-    /* لون الخلفية */
     --card-bg: #FFFFFF;
-    /* لون خلفية البطاقات */
-    --card-hover: #F0F0F0;
-    /* لون البطاقات عند التمرير */
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    /* ظل العناصر */
     --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
-    /* ظل العناصر عند التمرير */
     --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* انتقال سريع */
-    --transition-slow: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* انتقال بطيء */
-    --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* انتقال سريع جداً */
     --border-radius: 20px;
-    /* زوايا دائرية كبيرة */
-    --border-radius-small: 10px;
-    /* زوايا دائرية صغيرة */
-    --section-padding: clamp(4rem, 8vw, 10rem);
-    /* حشوة الأقسام متجاوبة */
 }
 
-/* ===== متغيرات الوضع الليلي ===== */
 .dark-mode {
-    /* تعريف المتغيرات للوضع الليلي */
     --primary: #8FBC8F;
-    /* اللون الأساسي يصبح فاتحاً */
     --primary-dark: #6A8B6A;
-    /* اللون الأساسي الداكن */
     --primary-light: #A8C6A8;
-    /* اللون الأساسي الفاتح */
-    --primary-glow: rgba(143, 188, 143, 0.6);
-    /* توهج اللون الأساسي */
     --secondary: #1A1A1A;
-    /* خلفية أغمق */
     --accent: #556B2F;
-    /* لون التمييز يصبح داكناً */
-    --accent-glow: rgba(85, 107, 47, 0.6);
-    /* توهج لون التمييز */
     --text: #E0E0E0;
-    /* نص فاتح */
     --text-light: #A0A0A0;
-    /* نص ثانوي فاتح */
     --bg: #0D0D0D;
-    /* خلفية سوداء */
     --card-bg: #1A1A1A;
-    /* خلفية بطاقات داكنة */
-    --card-hover: #252525;
-    /* خلفية البطاقات عند التمرير */
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    /* ظل أغمق */
     --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.5);
-    /* ظل التمرير أغمق */
 }
 
-/* ===== إعادة الضبط الأساسية ===== */
+.color-1 { --primary: #556B2F; --primary-dark: #3A4A1F; --accent: #8FBC8F; }
+.color-2 { --primary: #2F556B; --primary-dark: #1F3A4A; --accent: #5B8A9A; }
+.color-3 { --primary: #6B2F55; --primary-dark: #4A1F3A; --accent: #9A5B8A; }
+.color-4 { --primary: #2F6B55; --primary-dark: #1F4A3A; --accent: #5B9A8A; }
+.color-5 { --primary: #6B552F; --primary-dark: #4A3A1F; --accent: #9A8A5B; }
+.color-6 { --primary: #4B2F6B; --primary-dark: #341F4A; --accent: #7A5B9A; }
+.color-7 { --primary: #2F4B6B; --primary-dark: #1F344A; --accent: #5B7A9A; }
+.color-8 { --primary: #6B2F4B; --primary-dark: #4A1F34; --accent: #9A5B7A; }
+.color-9 { --primary: #2F6B4B; --primary-dark: #1F4A34; --accent: #5B9A7A; }
+
 * {
-    /* إعادة ضبط جميع العناصر */
     margin: 0;
-    /* إزالة الهوامش */
     padding: 0;
-    /* إزالة الحشوات */
     box-sizing: border-box;
-    /* تضمين الحشوات والحدود في الأبعاد */
-}
-
-html {
-    /* إعدادات HTML */
-    scroll-behavior: smooth;
-    /* تمرير سلس */
-    font-size: 16px;
-    /* حجم الخط الأساسي */
+    font-family: 'Tajawal', sans-serif;
 }
 
 body {
-    /* إعدادات الجسم */
-    font-family: 'Tajawal', sans-serif;
-    /* خط Tajawal للعربية */
     background-color: var(--bg);
-    /* لون الخلفية من المتغيرات */
     color: var(--text);
-    /* لون النص من المتغيرات */
+    transition: var(--transition);
     line-height: 1.6;
-    /* ارتفاع السطر */
     overflow-x: hidden;
-    /* منع التمرير الأفقي */
-    transition: var(--transition);
-    /* انتقال التغييرات */
-    min-height: 100vh;
-    /* أدنى ارتفاع للشاشة */
 }
 
-/* ===== تأثيرات جديدة ===== */
-.glitch-effect {
-    /* تأثير الغليتش */
-    position: relative;
-    /* تحديد الوضع النسبي */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.glitch-effect::before,
-.glitch-effect::after {
-    /* العناصر الزائفة لتأثير الغليتش */
-    content: attr(data-text);
-    /* استخدام نص من السمة data-text */
-    position: absolute;
-    /* وضع مطلق */
-    top: 0;
-    /* أعلى العنصر */
-    left: 0;
-    /* أقصى اليسار */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    opacity: 0;
-    /* شفافية كاملة */
-}
-
-.glitch-effect:hover::before {
-    /* تأثير الغليتش الأول عند التمرير */
-    animation: glitch-1 0.5s infinite linear alternate-reverse;
-    /* تشغيل الأنيميشن */
-    color: #ff00ff;
-    /* لون وردي */
-    z-index: -1;
-    /* خلف المحتوى */
-}
-
-.glitch-effect:hover::after {
-    /* تأثير الغليتش الثاني عند التمرير */
-    animation: glitch-2 0.5s infinite linear alternate-reverse;
-    /* تشغيل الأنيميشن */
-    color: #00ffff;
-    /* لون أزرق فاتح */
-    z-index: -2;
-    /* خلف التأثير الأول */
-}
-
-.confetti {
-    /* عناصر الكونفيتي */
-    position: fixed;
-    /* وضع ثابت */
-    width: 10px;
-    /* عرض صغير */
-    height: 10px;
-    /* ارتفاع صغير */
-    background-color: var(--primary);
-    /* لون من المتغيرات */
-    top: 0;
-    /* بداية من الأعلى */
-    opacity: 0;
-    /* غير مرئي */
-    z-index: 9999;
-    /* أعلى طبقة */
-}
-
-.success-message {
-    /* رسالة النجاح */
-    position: fixed;
-    /* وضع ثابت */
-    top: 50%;
-    /* منتصف الشاشة رأسيًا */
-    left: 50%;
-    /* منتصف الشاشة أفقيًا */
-    transform: translate(-50%, -50%) scale(0);
-    /* تكبير ابتدائي صفر */
-    background: var(--card-bg);
-    /* خلفية من المتغيرات */
-    padding: 2rem;
-    /* حشوة داخلية */
-    border-radius: var(--border-radius);
-    /* زوايا دائرية */
-    box-shadow: var(--shadow-hover);
-    /* ظل */
-    z-index: 10000;
-    /* أعلى طبقة */
-    text-align: center;
-    /* محاذاة النص لليمين */
-    max-width: 90%;
-    /* أقصى عرض */
-    width: 400px;
-    /* عرض ثابت */
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* انتقال سلس */
-}
-
-.success-message.active {
-    /* حالة النشاط لرسالة النجاح */
-    transform: translate(-50%, -50%) scale(1);
-    /* تكبير إلى الحجم الطبيعي */
-}
-
-.success-icon {
-    /* أيقونة النجاح */
-    font-size: 4rem;
-    /* حجم كبير */
-    color: var(--primary);
-    /* لون من المتغيرات */
-    margin-bottom: 1rem;
-    /* هامش سفلي */
-    animation: pulse 1.5s infinite;
-    /* أنيميشن النبض */
-}
-
-.success-text {
-    /* نص النجاح */
-    font-size: 1.2rem;
-    /* حجم خط متوسط */
-    margin-bottom: 1.5rem;
-    /* هامش سفلي */
-    color: var(--text);
-    /* لون النص */
-}
-
-.copy-popup {
-    /* النافذة المنبثقة للنسخ */
-    position: absolute;
-    /* وضع مطلق */
-    background: var(--primary);
-    /* خلفية من المتغيرات */
-    color: white;
-    /* نص أبيض */
-    padding: 0.5rem 1rem;
-    /* حشوة داخلية */
-    border-radius: 25px;
-    /* زوايا دائرية */
-    font-size: 0.8rem;
-    /* حجم خط صغير */
-    top: -40px;
-    /* فوق العنصر */
-    left: 50%;
-    /* منتصف العنصر */
-    transform: translateX(-50%);
-    /* محاذاة للمنتصف */
-    opacity: 0;
-    /* غير مرئي */
-    transition: var(--transition);
-    /* انتقال سلس */
-    white-space: nowrap;
-    /* منع تكسير النص */
-    z-index: 10;
-    /* طبقة عالية */
-}
-
-.copy-popup.active {
-    /* حالة النشاط للنافذة المنبثقة */
-    opacity: 1;
-    /* مرئي */
-    top: -50px;
-    /* ارتفاع أعلى */
-}
-
-.copy-popup::after {
-    /* السهم أسفل النافذة المنبثقة */
-    content: '';
-    /* محتوى فارغ */
-    position: absolute;
-    /* وضع مطلق */
-    bottom: -8px;
-    /* أسفل النافذة */
-    left: 50%;
-    /* منتصف النافذة */
-    transform: translateX(-50%);
-    /* محاذاة للمنتصف */
-    width: 0;
-    /* عرض صفر */
-    height: 0;
-    /* ارتفاع صفر */
-    border-left: 8px solid transparent;
-    /* حدود لتشكيل المثلث */
-    border-right: 8px solid transparent;
-    /* حدود لتشكيل المثلث */
-    border-top: 8px solid var(--primary);
-    /* حدود لتشكيل المثلث */
-}
-
-/* ===== Navbar محسنة مثل Ahmed.dev ===== */
 .navbar {
-    /* شريط التنقل */
     position: fixed;
-    /* وضع ثابت */
-    top: 0;
-    /* أعلى الصفحة */
-    left: 0;
-    /* أقصى اليسار */
-    width: 100%;
-    /* عرض كامل */
-    padding: 1.5rem clamp(1rem, 3vw, 3rem);
-    /* حشوة متجاوبة */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 1.5rem;
     display: flex;
-    /* تخطيط مرن */
     justify-content: space-between;
-    /* توزيع المساحة بين العناصر */
     align-items: center;
-    /* محاذاة رأسية */
     z-index: 1000;
-    /* طبقة عالية */
     background: rgba(248, 249, 250, 0.95);
-    /* خلفية شبه شفافة */
     backdrop-filter: blur(15px);
-    /* تأثير ضبابي */
+    border-radius: 15px;
+    box-shadow: var(--shadow);
     transition: var(--transition);
-    /* انتقال سلس */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    /* ظل خفيف */
 }
 
 .dark-mode .navbar {
-    /* شريط التنقل في الوضع الليلي */
     background: rgba(13, 13, 13, 0.95);
-    /* خلفية داكنة شبه شفافة */
-}
-
-.navbar.scrolled {
-    /* شريط التنقل عند التمرير */
-    padding: 1rem clamp(1rem, 3vw, 3rem);
-    /* حشوة أصغر */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    /* ظل أغمق */
-    background: rgba(248, 249, 250, 0.98);
-    /* خلفية أقل شفافية */
-}
-
-.dark-mode .navbar.scrolled {
-    /* شريط التنقل في الوضع الليلي عند التمرير */
-    background: rgba(13, 13, 13, 0.98);
-    /* خلفية داكنة أقل شفافية */
 }
 
 .logo {
-    /* الشعار */
-    font-size: clamp(1.3rem, 4vw, 1.8rem);
-    /* حجم خط متجاوب */
+    font-size: 1.5rem;
     font-weight: 800;
-    /* سمك خط عريض */
     color: var(--primary);
-    /* لون من المتغيرات */
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
-    position: relative;
-    /* وضع نسبي */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-    text-decoration: none;
-    /* إزالة التزيين */
-    cursor: pointer;
-    /* مؤشر يد */
-    white-space: nowrap;
-    /* منع تكسير النص */
 }
 
 .logo i {
-    /* أيقونة الشعار */
     margin-left: 0.5rem;
-    /* هامش أيسر */
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    /* حجم متجاوب */
-    transition: var(--transition);
-    /* انتقال سلس */
-}
-
-.logo:hover i {
-    /* أيقونة الشعار عند التمرير */
-    transform: rotate(15deg);
-    /* دوران */
-}
-
-.nav-links {
-    /* روابط التنقل */
-    display: flex;
-    /* تخطيط مرن */
-    list-style: none;
-    /* إزالة النقاط */
-    gap: clamp(1rem, 2vw, 2rem);
-    /* فراغات متجاوبة */
-}
-
-.nav-links li {
-    /* عناصر قائمة التنقل */
-    position: relative;
-    /* وضع نسبي */
-}
-
-.nav-links a {
-    /* روابط التنقل */
-    text-decoration: none;
-    /* إزالة التزيين */
-    color: var(--text);
-    /* لون النص */
-    font-weight: 600;
-    /* سمك خط متوسط */
-    position: relative;
-    /* وضع نسبي */
-    padding: 0.5rem 0;
-    /* حشوة رأسية */
-    transition: var(--transition);
-    /* انتقال سلس */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    /* حجم خط متجاوب */
-}
-
-.nav-links a::before {
-    /* خط تحت الرابط */
-    content: '';
-    /* محتوى فارغ */
-    position: absolute;
-    /* وضع مطلق */
-    bottom: 0;
-    /* أسفل الرابط */
-    right: 0;
-    /* أقصى اليمين */
-    width: 0;
-    /* عرض ابتدائي صفر */
-    height: 2px;
-    /* ارتفاع الخط */
-    background: var(--primary);
-    /* لون من المتغيرات */
-    transition: var(--transition);
-    /* انتقال سلس */
-}
-
-.nav-links a:hover {
-    /* روابط التنقل عند التمرير */
-    color: var(--primary);
-    /* تغيير اللون */
-}
-
-.nav-links a:hover::before {
-    /* خط تحت الرابط عند التمرير */
-    width: 100%;
-    /* عرض كامل */
 }
 
 .nav-actions {
-    /* أزرار التنقل الإضافية */
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
     gap: 1rem;
-    /* فراغات */
 }
 
-.theme-toggle, .language-toggle {
-    /* أزرار تبديل الوضع واللغة */
+.control-btn {
     background: none;
-    /* إزالة الخلفية */
     border: none;
-    /* إزالة الحدود */
     color: var(--text);
-    /* لون النص */
     font-size: 1.3rem;
-    /* حجم خط */
     cursor: pointer;
-    /* مؤشر يد */
     transition: var(--transition);
-    /* انتقال سلس */
     width: 40px;
-    /* عرض ثابت */
     height: 40px;
-    /* ارتفاع ثابت */
     border-radius: 50%;
-    /* شكل دائري */
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
     justify-content: center;
-    /* محاذاة أفقية */
-}
-
-.theme-toggle:hover, .language-toggle:hover {
-    /* أزرار التبديل عند التمرير */
-    color: var(--primary);
-    /* تغيير اللون */
-    transform: rotate(30deg);
-    /* دوران */
-    background: rgba(85, 107, 47, 0.1);
-    /* خلفية شفافة */
-}
-
-.menu-toggle {
-    /* زر قائمة الموبايل */
-    display: none;
-    /* مخفي افتراضيًا */
-    background: none;
-    /* إزالة الخلفية */
-    border: none;
-    /* إزالة الحدود */
-    color: var(--text);
-    /* لون النص */
-    font-size: 1.5rem;
-    /* حجم خط */
-    cursor: pointer;
-    /* مؤشر يد */
-    transition: var(--transition);
-    /* انتقال سلس */
-    width: 40px;
-    /* عرض ثابت */
-    height: 40px;
-    /* ارتفاع ثابت */
-    border-radius: 50%;
-    /* شكل دائري */
-    align-items: center;
-    /* محاذاة رأسية */
-    justify-content: center;
-    /* محاذاة أفقية */
-}
-
-.menu-toggle:hover {
-    /* زر القائمة عند التمرير */
-    color: var(--primary);
-    /* تغيير اللون */
-    background: rgba(85, 107, 47, 0.1);
-    /* خلفية شفافة */
-}
-
-/* شريط التقدم */
-.progress-bar {
-    /* شريط التقدم */
-    position: fixed;
-    /* وضع ثابت */
-    top: 0;
-    /* أعلى الصفحة */
-    right: 0;
-    /* أقصى اليمين */
-    width: 0%;
-    /* عرض ابتدائي صفر */
-    height: 3px;
-    /* ارتفاع صغير */
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    /* خلفية متدرجة */
-    z-index: 1001;
-    /* طبقة عالية */
-    transition: width 0.3s ease;
-    /* انتقال سلس */
-}
-
-/* ===== دوائر الخلفية المتحركة ===== */
-.floating-bubbles {
-    /* دوائر الخلفية المتحركة */
-    position: fixed;
-    /* وضع ثابت */
-    top: 0;
-    /* أعلى الصفحة */
-    left: 0;
-    /* أقصى اليسار */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    pointer-events: none;
-    /* لا يتفاعل مع المؤشر */
-    z-index: -1;
-    /* خلف المحتوى */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-}
-
-.bubble {
-    /* الدوائر الفردية */
-    position: absolute;
-    /* وضع مطلق */
-    border-radius: 50%;
-    /* شكل دائري */
-    background: var(--primary);
-    /* لون من المتغيرات */
-    opacity: 0.1;
-    /* شفافية */
-    animation: floatBubble 15s infinite ease-in-out;
-    /* أنيميشن الطفو */
-    cursor: pointer;
-    /* مؤشر يد */
-    pointer-events: auto;
-    /* تفعيل التفاعل */
-    transition: transform 0.3s ease;
-    /* انتقال سلس */
-}
-
-.bubble:hover {
-    /* الدوائر عند التمرير */
-    opacity: 0.2;
-    /* زيادة الشفافية */
-}
-
-.bubble.popped {
-    /* الدوائر عند النقر */
-    animation: popBubble 0.5s forwards;
-    /* أنيميشن الانفجار */
-}
-
-/* ===== المحتوى الرئيسي ===== */
-.container {
-    /* الحاوية الرئيسية */
-    max-width: 1400px;
-    /* أقصى عرض */
-    margin: 0 auto;
-    /* توسيط */
-    padding: 0 clamp(1rem, 3vw, 2rem);
-    /* حشوة متجاوبة */
-}
-
-/* ===== قسم البطل ===== */
-.hero {
-    /* قسم البطل */
-    min-height: 100vh;
-    /* أدنى ارتفاع للشاشة */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
     position: relative;
-    /* وضع نسبي */
+}
+
+.control-btn:hover {
+    color: var(--primary);
+    background: rgba(85, 107, 47, 0.1);
+}
+
+.control-btn .tooltip {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.control-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -35px;
+}
+
+.side-toggle {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: none;
+}
+
+.side-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.chat-toggle {
+    left: 20px;
+}
+
+.color-toggle {
+    right: 20px;
+}
+
+.color-palette {
+    position: fixed;
+    right: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: var(--shadow);
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 150px;
+    z-index: 999;
+}
+
+.color-palette.active {
+    display: grid;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.active {
+    border-color: var(--text);
+}
+
+.chat-window {
+    position: fixed;
+    left: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    display: none;
+    flex-direction: column;
+    width: 350px;
+    height: 500px;
+    z-index: 999;
     overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-    padding-top: 80px;
-    /* حشوة علوية */
+}
+
+.chat-window.active {
+    display: flex;
+}
+
+.chat-header {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background: var(--primary);
+    color: white;
+    margin-left: auto;
+    text-align: left;
+    border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+    background: var(--accent);
+    color: var(--text);
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+.suggested-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-btn {
+    background: var(--primary-dark);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.8rem;
+}
+
+.question-btn:hover {
+    background: var(--primary);
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.chat-input button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.chat-input button:hover {
+    background: var(--primary-dark);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
 }
 
 .hero-content {
-    /* محتوى قسم البطل */
     display: grid;
-    /* تخطيط شبكي */
     grid-template-columns: 1fr 1fr;
-    /* عمودين متساويين */
-    gap: clamp(2rem, 5vw, 4rem);
-    /* فراغ متجاوب */
+    gap: 4rem;
     align-items: center;
-    /* محاذاة رأسية */
     width: 100%;
-    /* عرض كامل */
-    position: relative;
-    /* وضع نسبي */
-    z-index: 2;
-    /* طبقة فوق الخلفية */
 }
 
-.hero-text {
-    /* النص في قسم البطل */
-    animation: fadeInLeft 1.2s ease;
-    /* أنيميشن الظهور */
-}
-
-.hero-image {
-    /* الصورة في قسم البطل */
-    display: flex;
-    /* تخطيط مرن */
-    justify-content: center;
-    /* محاذاة أفقية */
-    align-items: center;
-    /* محاذاة رأسية */
-    animation: fadeInRight 1.2s ease;
-    /* أنيميشن الظهور */
-    position: relative;
-    /* وضع نسبي */
-}
-
-.profile-container {
-    /* حاوية الصورة الشخصية */
-    position: relative;
-    /* وضع نسبي */
-    width: min(400px, 80vw);
-    /* عرض متجاوب */
-    height: min(400px, 80vw);
-    /* ارتفاع متجاوب */
-    max-width: 100%;
-    /* أقصى عرض */
-    cursor: pointer;
-    /* مؤشر يد */
-    transition: var(--transition);
-    /* انتقال سلس */
-}
-
-.profile-img {
-    /* الصورة الشخصية */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    border-radius: 50%;
-    /* شكل دائري */
-    object-fit: cover;
-    /* تغطية المساحة */
-    border: 8px solid var(--primary);
-    /* حدود */
-    box-shadow: 0 20px 60px rgba(85, 107, 47, 0.3);
-    /* ظل */
-    transition: var(--transition);
-    /* انتقال سلس */
-    position: relative;
-    /* وضع نسبي */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-    filter: grayscale(0.2);
-    /* تدرج رمادي خفيف */
-}
-
-.profile-img:hover {
-    /* الصورة الشخصية عند التمرير */
-    transform: scale(1.05);
-    /* تكبير */
-    box-shadow: 0 25px 80px rgba(85, 107, 47, 0.4);
-    /* ظل أكبر */
-    filter: grayscale(0);
-    /* إزالة التدرج الرمادي */
-}
-
-.profile-overlay {
-    /* طبقة overlay للصورة */
-    position: absolute;
-    /* وضع مطلق */
-    top: 0;
-    /* أعلى الصورة */
-    left: 0;
-    /* أقصى اليسار */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    background: rgba(85, 107, 47, 0.8);
-    /* خلفية شبه شفافة */
-    border-radius: 50%;
-    /* شكل دائري */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    justify-content: center;
-    /* محاذاة أفقية */
-    opacity: 0;
-    /* غير مرئي */
-    transition: var(--transition);
-    /* انتقال سلس */
-    color: white;
-    /* نص أبيض */
-    font-size: 1.2rem;
-    /* حجم خط */
-    font-weight: 600;
-    /* سمك خط */
-}
-
-.profile-container:hover .profile-overlay {
-    /* طبقة overlay عند التمرير */
-    opacity: 1;
-    /* مرئي */
-}
-
-h1 {
-    /* العنوان الرئيسي */
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    /* حجم خط متجاوب */
-    margin-bottom: 1.5rem;
-    /* هامش سفلي */
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
     color: var(--primary);
-    /* لون من المتغيرات */
-    line-height: 1.2;
-    /* ارتفاع السطر */
 }
 
 .title {
-    /* العنوان الثانوي */
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    /* حجم خط متجاوب */
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    /* هامش سفلي */
     color: var(--text);
-    /* لون النص */
 }
 
 .description {
-    /* الوصف */
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    /* حجم خط متجاوب */
+    font-size: 1.1rem;
     line-height: 1.8;
-    /* ارتفاع السطر */
     margin-bottom: 2.5rem;
-    /* هامش سفلي */
     color: var(--text-light);
-    /* لون النص الثانوي */
 }
 
 .btn {
-    /* الأزرار */
     display: inline-block;
-    /* عرض حسب المحتوى */
-    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
-    /* حشوة متجاوبة */
+    padding: 1rem 2rem;
     background: linear-gradient(135deg, var(--primary), var(--accent));
-    /* خلفية متدرجة */
     color: white;
-    /* نص أبيض */
     border: none;
-    /* إزالة الحدود */
     border-radius: 50px;
-    /* زوايا دائرية */
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    /* حجم خط متجاوب */
+    font-size: 1.1rem;
     font-weight: 600;
-    /* سمك خط */
     cursor: pointer;
-    /* مؤشر يد */
     transition: var(--transition);
-    /* انتقال سلس */
     text-decoration: none;
-    /* إزالة التزيين */
     box-shadow: 0 10px 30px rgba(85, 107, 47, 0.3);
-    /* ظل */
-    position: relative;
-    /* وضع نسبي */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-}
-
-.btn::before {
-    /* تأثير اللمعان على الأزرار */
-    content: '';
-    /* محتوى فارغ */
-    position: absolute;
-    /* وضع مطلق */
-    top: 0;
-    /* أعلى الزر */
-    left: -100%;
-    /* خارج الزر من اليسار */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    /* تدرج شفاف */
-    transition: var(--transition);
-    /* انتقال سلس */
-}
-
-.btn:hover::before {
-    /* تأثير اللمعان عند التمرير */
-    left: 100%;
-    /* تحريك عبر الزر */
 }
 
 .btn:hover {
-    /* الأزرار عند التمرير */
     transform: translateY(-5px);
-    /* رفع للأعلى */
     box-shadow: 0 15px 40px rgba(85, 107, 47, 0.4);
-    /* ظل أكبر */
 }
 
 .btn-outline {
-    /* الأزرار ذات الإطار */
     background: transparent;
-    /* خلفية شفافة */
     border: 2px solid var(--primary);
-    /* حدود */
     color: var(--primary);
-    /* لون النص */
     margin-right: 1rem;
-    /* هامش أيمن */
 }
 
 .btn-outline:hover {
-    /* الأزرار ذات الإطار عند التمرير */
     background: var(--primary);
-    /* خلفية */
     color: white;
-    /* نص أبيض */
 }
 
-/* ===== تأثير نسخ البريد الإلكتروني ===== */
-.copy-effect {
-    /* تأثير النسخ */
-    position: fixed;
-    /* وضع ثابت */
-    top: 0;
-    /* أعلى الصفحة */
-    left: 0;
-    /* أقصى اليسار */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    background: var(--primary);
-    /* خلفية */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    justify-content: center;
-    /* محاذاة أفقية */
-    z-index: 9998;
-    /* طبقة عالية */
-    opacity: 0;
-    /* غير مرئي */
-    visibility: hidden;
-    /* مخفي */
-    transition: var(--transition-slow);
-    /* انتقال بطيء */
-}
-
-.copy-effect.active {
-    /* تأثير النسخ النشط */
-    opacity: 1;
-    /* مرئي */
-    visibility: visible;
-    /* ظاهر */
-}
-
-.copy-effect-content {
-    /* محتوى تأثير النسخ */
-    text-align: center;
-    /* محاذاة النص لليمين */
-    color: white;
-    /* نص أبيض */
-    background: rgba(0, 0, 0, 0.7);
-    /* خلفية شبه شفافة */
-    padding: 3rem;
-    /* حشوة داخلية */
-    border-radius: var(--border-radius);
-    /* زوايا دائرية */
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    /* ظل */
-}
-
-.copy-effect-text {
-    /* نص تأثير النسخ */
-    font-size: clamp(2rem, 5vw, 4rem);
-    /* حجم خط متجاوب */
-    font-weight: 800;
-    /* سمك خط عريض */
-    margin-bottom: 2rem;
-    /* هامش سفلي */
-}
-
-/* ===== الأقسام ===== */
-section {
-    /* الأقسام العامة */
-    padding: var(--section-padding) 0;
-    /* حشوة متغيرة */
+.profile-container {
     position: relative;
-    /* وضع نسبي */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img-wrapper {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(85, 107, 47, 0.3),
+        0 0 0 8px var(--primary),
+        0 0 0 12px var(--accent);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.profile-img-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 25px 80px rgba(85, 107, 47, 0.4),
+        0 0 0 8px var(--primary),
+        0 0 0 12px var(--accent);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.profile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(85, 107, 47, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 2rem;
+}
+
+.profile-img-wrapper:hover .profile-overlay {
+    opacity: 1;
+}
+
+.profile-img-wrapper:hover .profile-img {
+    transform: scale(1.1);
+}
+
+.copy-popup {
+    position: absolute;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: var(--transition);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.copy-popup.active {
+    opacity: 1;
+    top: -50px;
+}
+
+.copy-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--primary);
+}
+
+.celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.celebration.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.celebration-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: celebrationPop 0.5s ease-out;
+}
+
+.celebration h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.celebration p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.celebration button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.celebration button:hover {
+    background: var(--primary-dark);
+}
+
+section {
+    padding: 5rem 0;
 }
 
 .section-title {
-    /* عناوين الأقسام */
     text-align: center;
-    /* محاذاة النص لليمين */
-    font-size: clamp(2rem, 5vw, 3rem);
-    /* حجم خط متجاوب */
-    margin-bottom: clamp(3rem, 6vw, 5rem);
-    /* هامش سفلي متجاوب */
-    color: var(--primary);
-    /* لون من المتغيرات */
-    position: relative;
-    /* وضع نسبي */
-}
-
-.section-title::after {
-    /* خط تحت عنوان القسم */
-    content: '';
-    /* محتوى فارغ */
-    position: absolute;
-    /* وضع مطلق */
-    bottom: -15px;
-    /* أسفل العنوان */
-    right: 50%;
-    /* منتصف العنوان */
-    transform: translateX(50%);
-    /* محاذاة للمنتصف */
-    width: 100px;
-    /* عرض ثابت */
-    height: 5px;
-    /* ارتفاع الخط */
-    background: var(--primary);
-    /* لون من المتغيرات */
-    border-radius: 5px;
-    /* زوايا دائرية */
-}
-
-/* ===== قسم التقنيات المتقدم ===== */
-.tech-stack-advanced {
-    /* حاوية التقنيات */
-    background: var(--card-bg);
-    /* خلفية من المتغيرات */
-    border-radius: var(--border-radius);
-    /* زوايا دائرية */
-    padding: clamp(2rem, 4vw, 3rem);
-    /* حشوة متجاوبة */
-    box-shadow: var(--shadow);
-    /* ظل */
+    font-size: 2.5rem;
     margin-bottom: 3rem;
-    /* هامش سفلي */
-    transition: var(--transition);
-    /* انتقال سلس */
+    color: var(--primary);
 }
 
-.tech-stack-advanced:hover {
-    /* حاوية التقنيات عند التمرير */
-    transform: translateY(-10px);
-    /* رفع للأعلى */
-    box-shadow: var(--shadow-hover);
-    /* ظل أكبر */
+.tech-stack {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
 }
 
 .tech-categories {
-    /* فئات التقنيات */
     display: grid;
-    /* تخطيط شبكي */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* أعمدة متجاوبة */
     gap: 2rem;
-    /* فراغات */
-    margin-bottom: 3rem;
-    /* هامش سفلي */
 }
 
-.tech-category-advanced {
-    /* فئة تقنية */
+.tech-category {
     background: var(--bg);
-    /* خلفية من المتغيرات */
     padding: 2rem;
-    /* حشوة داخلية */
     border-radius: var(--border-radius);
-    /* زوايا دائرية */
-    transition: var(--transition);
-    /* انتقال سلس */
 }
 
-.tech-category-advanced:hover {
-    /* فئة التقنية عند التمرير */
-    transform: translateY(-5px);
-    /* رفع للأعلى */
-    box-shadow: var(--shadow);
-    /* ظل */
-}
-
-.tech-category-advanced h3 {
-    /* عنوان فئة التقنية */
+.tech-category h3 {
     color: var(--primary);
-    /* لون من المتغيرات */
     margin-bottom: 1.5rem;
-    /* هامش سفلي */
-    font-size: 1.5rem;
-    /* حجم خط */
     text-align: center;
-    /* محاذاة النص لليمين */
-    border-bottom: 2px solid var(--primary);
-    /* خط سفلي */
-    padding-bottom: 0.5rem;
-    /* حشوة سفلية */
 }
 
 .tech-items {
-    /* عناصر التقنيات */
     display: flex;
-    /* تخطيط مرن */
     flex-wrap: wrap;
-    /* التفاف عند الضرورة */
     gap: 1rem;
-    /* فراغات */
     justify-content: center;
-    /* محاذاة أفقية */
 }
 
 .tech-item {
-    /* عنصر تقنية */
     display: flex;
-    /* تخطيط مرن */
     flex-direction: column;
-    /* اتجاه عمودي */
     align-items: center;
-    /* محاذاة رأسية */
     gap: 0.5rem;
-    /* فراغات */
     padding: 1rem;
-    /* حشوة داخلية */
     background: var(--card-bg);
-    /* خلفية من المتغيرات */
-    border-radius: var(--border-radius-small);
-    /* زوايا دائرية صغيرة */
+    border-radius: 10px;
     transition: var(--transition);
-    /* انتقال سلس */
     min-width: 100px;
-    /* أدنى عرض */
 }
 
 .tech-item:hover {
-    /* عنصر التقنية عند التمرير */
     transform: translateY(-5px);
-    /* رفع للأعلى */
     box-shadow: var(--shadow);
-    /* ظل */
-    background: var(--primary);
-    /* خلفية */
-    color: white;
-    /* نص أبيض */
 }
 
-.tech-item:hover .tech-icon-advanced {
-    /* أيقونة التقنية عند التمرير */
-    color: white;
-    /* لون أبيض */
-    transform: scale(1.2);
-    /* تكبير */
-}
-
-.tech-icon-advanced {
-    /* أيقونات التقنيات */
-    font-size: 2.5rem;
-    /* حجم كبير */
+.tech-icon {
+    font-size: 2rem;
     color: var(--primary);
-    /* لون من المتغيرات */
-    transition: var(--transition);
-    /* انتقال سلس */
 }
 
-.tech-name {
-    /* اسم التقنية */
-    font-size: 0.9rem;
-    /* حجم خط صغير */
-    font-weight: 600;
-    /* سمك خط */
-    text-align: center;
-    /* محاذاة النص لليمين */
-}
-
-.tech-level {
-    /* شريط مستوى المهارة */
-    width: 100%;
-    /* عرض كامل */
-    height: 4px;
-    /* ارتفاع صغير */
-    background: rgba(85, 107, 47, 0.2);
-    /* خلفية شفافة */
-    border-radius: 2px;
-    /* زوايا دائرية */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-}
-
-.tech-level-bar {
-    /* مستوى المهارة الفعلي */
-    height: 100%;
-    /* ارتفاع كامل */
-    background: var(--primary);
-    /* لون من المتغيرات */
-    border-radius: 2px;
-    /* زوايا دائرية */
-    transition: width 1s ease;
-    /* انتقال سلس */
-}
-
-/* ===== قسم GitHub ===== */
 .github-section {
-    /* قسم GitHub */
-    background: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%);
-    /* خلفية متدرجة */
-}
-
-.github-header {
-    /* رأس قسم GitHub */
-    text-align: center;
-    /* محاذاة النص لليمين */
-    margin-bottom: 3rem;
-    /* هامش سفلي */
+    background: var(--card-bg);
 }
 
 .github-stats {
-    /* إحصائيات GitHub */
     display: flex;
-    /* تخطيط مرن */
     justify-content: center;
-    /* محاذاة أفقية */
     gap: 2rem;
-    /* فراغات */
     margin-bottom: 3rem;
-    /* هامش سفلي */
     flex-wrap: wrap;
-    /* التفاف عند الضرورة */
 }
 
 .stat-card {
-    /* بطاقة الإحصائيات */
-    background: var(--card-bg);
-    /* خلفية من المتغيرات */
+    background: var(--bg);
     padding: 1.5rem 2rem;
-    /* حشوة داخلية */
     border-radius: var(--border-radius);
-    /* زوايا دائرية */
     box-shadow: var(--shadow);
-    /* ظل */
     text-align: center;
-    /* محاذاة النص لليمين */
     min-width: 150px;
-    /* أدنى عرض */
     transition: var(--transition);
-    /* انتقال سلس */
 }
 
 .stat-card:hover {
-    /* بطاقة الإحصائيات عند التمرير */
     transform: translateY(-5px);
-    /* رفع للأعلى */
     box-shadow: var(--shadow-hover);
-    /* ظل أكبر */
 }
 
 .stat-number {
-    /* الرقم في الإحصائيات */
     font-size: 2.5rem;
-    /* حجم كبير */
     font-weight: 800;
-    /* سمك خط عريض */
     color: var(--primary);
-    /* لون من المتغيرات */
     margin-bottom: 0.5rem;
-    /* هامش سفلي */
 }
 
 .stat-label {
-    /* تسمية الإحصائية */
     color: var(--text-light);
-    /* لون النص الثانوي */
     font-size: 0.9rem;
-    /* حجم خط صغير */
 }
 
-.repos-grid {
-    /* شبكة المستودعات */
-    display: grid;
-    /* تخطيط شبكي */
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    /* أعمدة متجاوبة */
-    gap: 2rem;
-    /* فراغات */
-}
-
-.repo-card {
-    /* بطاقة المستودع */
-    background: var(--card-bg);
-    /* خلفية من المتغيرات */
-    border-radius: var(--border-radius);
-    /* زوايا دائرية */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-    box-shadow: var(--shadow);
-    /* ظل */
-    transition: var(--transition);
-    /* انتقال سلس */
-    position: relative;
-    /* وضع نسبي */
-}
-
-.repo-card:hover {
-    /* بطاقة المستودع عند التمرير */
-    transform: translateY(-10px);
-    /* رفع للأعلى */
-    box-shadow: var(--shadow-hover);
-    /* ظل أكبر */
-}
-
-.repo-header {
-    /* رأس بطاقة المستودع */
-    padding: 1.5rem;
-    /* حشوة داخلية */
-    border-bottom: 1px solid rgba(85, 107, 47, 0.1);
-    /* خط سفلي */
-}
-
-.repo-title {
-    /* عنوان المستودع */
-    font-size: 1.3rem;
-    /* حجم خط */
-    margin-bottom: 0.5rem;
-    /* هامش سفلي */
-    color: var(--primary);
-    /* لون من المتغيرات */
+.github-filters {
     display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    gap: 0.5rem;
-    /* فراغات */
-}
-
-.repo-title i {
-    /* أيقونة المستودع */
-    font-size: 1.1rem;
-    /* حجم خط */
-}
-
-.repo-description {
-    /* وصف المستودع */
-    color: var(--text-light);
-    /* لون النص الثانوي */
-    margin-bottom: 1rem;
-    /* هامش سفلي */
-    font-size: 0.95rem;
-    /* حجم خط صغير */
-    line-height: 1.5;
-    /* ارتفاع السطر */
-}
-
-.repo-meta {
-    /* معلومات المستودع */
-    display: flex;
-    /* تخطيط مرن */
-    gap: 1rem;
-    /* فراغات */
-    font-size: 0.85rem;
-    /* حجم خط صغير */
-    color: var(--text-light);
-    /* لون النص الثانوي */
-}
-
-.repo-meta span {
-    /* عنصر معلومات */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    gap: 0.3rem;
-    /* فراغات */
-}
-
-.repo-footer {
-    /* تذييل بطاقة المستودع */
-    padding: 1rem 1.5rem;
-    /* حشوة داخلية */
-    background: var(--bg);
-    /* خلفية من المتغيرات */
-    display: flex;
-    /* تخطيط مرن */
-    justify-content: space-between;
-    /* توزيع المساحة */
-    align-items: center;
-    /* محاذاة رأسية */
-}
-
-.repo-language {
-    /* لغة البرمجة */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    gap: 0.5rem;
-    /* فراغات */
-    font-size: 0.9rem;
-    /* حجم خط صغير */
-}
-
-.language-color {
-    /* لون اللغة */
-    width: 12px;
-    /* عرض صغير */
-    height: 12px;
-    /* ارتفاع صغير */
-    border-radius: 50%;
-    /* شكل دائري */
-    background: var(--primary);
-    /* لون من المتغيرات */
-}
-
-.repo-link {
-    /* رابط المستودع */
-    color: var(--primary);
-    /* لون من المتغيرات */
-    text-decoration: none;
-    /* إزالة التزيين */
-    font-weight: 600;
-    /* سمك خط */
-    transition: var(--transition);
-    /* انتقال سلس */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    gap: 0.5rem;
-    /* فراغات */
-}
-
-.repo-link:hover {
-    /* رابط المستودع عند التمرير */
-    color: var(--primary-dark);
-    /* لون أغمق */
-}
-
-/* ===== قسم المشاريع المتقدم ===== */
-.projects-advanced {
-    /* قسم المشاريع */
-    background: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%);
-    /* خلفية متدرجة */
-}
-
-.projects-filter {
-    /* مرشحات المشاريع */
-    display: flex;
-    /* تخطيط مرن */
     justify-content: center;
-    /* محاذاة أفقية */
     flex-wrap: wrap;
-    /* التفاف عند الضرورة */
     gap: 1rem;
-    /* فراغات */
     margin-bottom: 3rem;
-    /* هامش سفلي */
 }
 
 .filter-btn {
-    /* أزرار التصفية */
     padding: 0.7rem 1.5rem;
-    /* حشوة داخلية */
     background: var(--card-bg);
-    /* خلفية من المتغيرات */
     border: 2px solid transparent;
-    /* حدود شفافة */
     border-radius: 25px;
-    /* زوايا دائرية */
     color: var(--text);
-    /* لون النص */
     cursor: pointer;
-    /* مؤشر يد */
     transition: var(--transition);
-    /* انتقال سلس */
     font-weight: 500;
-    /* سمك خط */
 }
 
 .filter-btn.active,
 .filter-btn:hover {
-    /* أزرار التصفية النشطة وعند التمرير */
     background: var(--primary);
-    /* خلفية */
     color: white;
-    /* نص أبيض */
     border-color: var(--primary);
-    /* لون الحدود */
 }
 
-.projects-grid-advanced {
-    /* شبكة المشاريع */
+.repos-grid {
     display: grid;
-    /* تخطيط شبكي */
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    /* أعمدة متجاوبة */
     gap: 2rem;
-    /* فراغات */
 }
 
-.project-card-advanced {
-    /* بطاقة المشروع */
+.repo-card {
     background: var(--card-bg);
-    /* خلفية من المتغيرات */
     border-radius: var(--border-radius);
-    /* زوايا دائرية */
     overflow: hidden;
-    /* إخفاء المحتوى الزائد */
     box-shadow: var(--shadow);
-    /* ظل */
     transition: var(--transition);
-    /* انتقال سلس */
     position: relative;
-    /* وضع نسبي */
-    cursor: pointer;
-    /* مؤشر يد */
 }
 
-.project-card-advanced:hover {
-    /* بطاقة المشروع عند التمرير */
+.repo-card:hover {
     transform: translateY(-10px);
-    /* رفع للأعلى */
     box-shadow: var(--shadow-hover);
-    /* ظل أكبر */
 }
 
-.project-image-container {
-    /* حاوية صورة المشروع */
-    position: relative;
-    /* وضع نسبي */
-    overflow: hidden;
-    /* إخفاء المحتوى الزائد */
-    height: 250px;
-    /* ارتفاع ثابت */
-    background: var(--bg);
-    /* خلفية من المتغيرات */
+.repo-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(85, 107, 47, 0.1);
+}
+
+.repo-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
-    justify-content: center;
-    /* محاذاة أفقية */
+    gap: 0.5rem;
+}
+
+.repo-title i {
+    font-size: 1.1rem;
+}
+
+.repo-description {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.repo-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.repo-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.repo-footer {
+    padding: 1rem 1.5rem;
+    background: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repo-language {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.language-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.repo-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.repo-link:hover {
+    color: var(--primary-dark);
+}
+
+.loading-spinner {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
 }
 
 .project-image {
-    /* صورة المشروع */
     width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
+    height: 200px;
     object-fit: cover;
-    /* تغطية المساحة */
-    transition: var(--transition);
-    /* انتقال سلس */
 }
 
-.project-image.placeholder {
-    /* الصورة البديلة */
-    width: 80px;
-    /* عرض صغير */
-    height: 80px;
-    /* ارتفاع صغير */
-    opacity: 0.5;
-    /* شفافية */
-}
-
-.project-card-advanced:hover .project-image {
-    /* صورة المشروع عند التمرير */
-    transform: scale(1.1);
-    /* تكبير */
-}
-
-.project-overlay-advanced {
-    /* طبقة overlay للمشروع */
-    position: absolute;
-    /* وضع مطلق */
-    top: 0;
-    /* أعلى الصورة */
-    left: 0;
-    /* أقصى اليسار */
-    width: 100%;
-    /* عرض كامل */
-    height: 100%;
-    /* ارتفاع كامل */
-    background: rgba(85, 107, 47, 0.9);
-    /* خلفية شبه شفافة */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    justify-content: center;
-    /* محاذاة أفقية */
-    opacity: 0;
-    /* غير مرئي */
-    transition: var(--transition);
-    /* انتقال سلس */
-}
-
-.project-card-advanced:hover .project-overlay-advanced {
-    /* طبقة overlay عند التمرير */
-    opacity: 1;
-    /* مرئي */
-}
-
-.project-content-advanced {
-    /* محتوى المشروع */
+.project-content {
     padding: 1.5rem;
-    /* حشوة داخلية */
 }
 
-.project-title-advanced {
-    /* عنوان المشروع */
+.project-title {
     font-size: 1.3rem;
-    /* حجم خط */
     margin-bottom: 0.5rem;
-    /* هامش سفلي */
     color: var(--primary);
-    /* لون من المتغيرات */
 }
 
-.project-category {
-    /* فئة المشروع */
+.project-description {
     color: var(--text-light);
-    /* لون النص الثانوي */
-    font-size: 0.9rem;
-    /* حجم خط صغير */
     margin-bottom: 1rem;
-    /* هامش سفلي */
-}
-
-.project-description-advanced {
-    /* وصف المشروع */
-    color: var(--text-light);
-    /* لون النص الثانوي */
-    margin-bottom: 1.5rem;
-    /* هامش سفلي */
-    font-size: 0.95rem;
-    /* حجم خط صغير */
 }
 
 .project-tech {
-    /* تقنيات المشروع */
     display: flex;
-    /* تخطيط مرن */
     flex-wrap: wrap;
-    /* التفاف عند الضرورة */
     gap: 0.5rem;
-    /* فراغات */
 }
 
 .tech-tag {
-    /* علامة التقنية */
     background: rgba(85, 107, 47, 0.1);
-    /* خلفية شفافة */
     color: var(--primary);
-    /* لون من المتغيرات */
     padding: 0.3rem 0.8rem;
-    /* حشوة داخلية */
     border-radius: 15px;
-    /* زوايا دائرية */
     font-size: 0.8rem;
-    /* حجم خط صغير */
-    font-weight: 500;
-    /* سمك خط */
-    transition: var(--transition);
-    /* انتقال سلس */
 }
 
-.tech-tag:hover {
-    /* علامة التقنية عند التمرير */
-    background: var(--primary);
-    /* خلفية */
-    color: white;
-    /* نص أبيض */
-}
-
-/* ===== قسم التواصل المتقدم ===== */
-.contact-advanced {
-    /* قسم التواصل */
-    background: var(--card-bg);
-    /* خلفية من المتغيرات */
-}
-
-.contact-container-advanced {
-    /* حاوية التواصل */
+.contact-container {
     display: grid;
-    /* تخطيط شبكي */
     grid-template-columns: 1fr 1fr;
-    /* عمودين متساويين */
-    gap: clamp(2rem, 4vw, 4rem);
-    /* فراغ متجاوب */
+    gap: 4rem;
 }
 
-.contact-info-advanced {
-    /* معلومات التواصل */
+.contact-info {
     display: flex;
-    /* تخطيط مرن */
     flex-direction: column;
-    /* اتجاه عمودي */
     gap: 2rem;
-    /* فراغات */
 }
 
 .contact-card {
-    /* بطاقة التواصل */
     background: var(--bg);
-    /* خلفية من المتغيرات */
     padding: 2rem;
-    /* حشوة داخلية */
     border-radius: var(--border-radius);
-    /* زوايا دائرية */
     box-shadow: var(--shadow);
-    /* ظل */
     transition: var(--transition);
-    /* انتقال سلس */
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
     gap: 1.5rem;
-    /* فراغات */
     cursor: pointer;
-    /* مؤشر يد */
 }
 
 .contact-card:hover {
-    /* بطاقة التواصل عند التمرير */
     transform: translateX(10px);
-    /* تحريك لليمين */
-    box-shadow: var(--shadow-hover);
-    /* ظل أكبر */
 }
 
-.contact-icon-advanced {
-    /* أيقونة التواصل */
+.contact-icon {
     width: 60px;
-    /* عرض ثابت */
     height: 60px;
-    /* ارتفاع ثابت */
     background: var(--primary);
-    /* خلفية */
     border-radius: 50%;
-    /* شكل دائري */
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
     justify-content: center;
-    /* محاذاة أفقية */
     color: white;
-    /* نص أبيض */
     font-size: 1.5rem;
-    /* حجم خط */
-    flex-shrink: 0;
-    /* منع الانكماش */
-    transition: var(--transition);
-    /* انتقال سلس */
 }
 
-.contact-card:hover .contact-icon-advanced {
-    /* أيقونة التواصل عند التمرير */
-    transform: scale(1.1);
-    /* تكبير */
-}
-
-.contact-details-advanced h3 {
-    /* عنوان بطاقة التواصل */
-    color: var(--primary);
-    /* لون من المتغيرات */
-    margin-bottom: 0.5rem;
-    /* هامش سفلي */
-}
-
-.contact-form-advanced {
-    /* نموذج التواصل */
+.contact-form {
     background: var(--bg);
-    /* خلفية من المتغيرات */
     padding: 2.5rem;
-    /* حشوة داخلية */
     border-radius: var(--border-radius);
-    /* زوايا دائرية */
     box-shadow: var(--shadow);
-    /* ظل */
 }
 
-.form-group-advanced {
-    /* مجموعة الحقول */
+.form-group {
     margin-bottom: 1.5rem;
-    /* هامش سفلي */
 }
 
-.form-label-advanced {
-    /* تسمية الحقل */
-    display: block;
-    /* عرض كتلة */
-    margin-bottom: 0.5rem;
-    /* هامش سفلي */
-    color: var(--text);
-    /* لون النص */
-    font-weight: 500;
-    /* سمك خط */
-}
-
-.form-control-advanced {
-    /* حقل الإدخال */
+.form-control {
     width: 100%;
-    /* عرض كامل */
     padding: 1rem;
-    /* حشوة داخلية */
     border: 2px solid rgba(85, 107, 47, 0.2);
-    /* حدود */
-    border-radius: var(--border-radius-small);
-    /* زوايا دائرية صغيرة */
+    border-radius: 10px;
     background: var(--card-bg);
-    /* خلفية من المتغيرات */
     color: var(--text);
-    /* لون النص */
     font-size: 1rem;
-    /* حجم خط */
     transition: var(--transition);
-    /* انتقال سلس */
-    font-family: 'Tajawal', sans-serif;
-    /* خط Tajawal */
 }
 
-.form-control-advanced:focus {
-    /* حقل الإدخال عند التركيز */
+.form-control:focus {
     outline: none;
-    /* إزالة الحدود الافتراضية */
     border-color: var(--primary);
-    /* لون الحدود */
-    box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.2);
-    /* ظل */
 }
 
-textarea.form-control-advanced {
-    /* حقل النص */
-    min-height: 150px;
-    /* أدنى ارتفاع */
-    resize: vertical;
-    /* السماح بالتغيير العمودي فقط */
-}
-
-/* ===== الفوتر ===== */
 .footer {
-    /* تذييل الصفحة */
     background: var(--secondary);
-    /* خلفية من المتغيرات */
     color: white;
-    /* نص أبيض */
-    padding: 4rem 0 2rem;
-    /* حشوة */
+    padding: 3rem 0;
     text-align: center;
-    /* محاذاة النص لليمين */
-}
-
-.footer-content {
-    /* محتوى الفوتر */
-    max-width: 1200px;
-    /* أقصى عرض */
-    margin: 0 auto;
-    /* توسيط */
-    padding: 0 clamp(1rem, 3vw, 2rem);
-    /* حشوة متجاوبة */
-}
-
-.footer-logo {
-    /* شعار الفوتر */
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    /* حجم خط متجاوب */
-    font-weight: 800;
-    /* سمك خط عريض */
-    color: var(--primary);
-    /* لون من المتغيرات */
-    margin-bottom: 2rem;
-    /* هامش سفلي */
-    display: flex;
-    /* تخطيط مرن */
-    align-items: center;
-    /* محاذاة رأسية */
-    justify-content: center;
-    /* محاذاة أفقية */
-    flex-wrap: wrap;
-    /* التفاف عند الضرورة */
-}
-
-.footer-logo i {
-    /* أيقونة الشعار */
-    margin-left: 1rem;
-    /* هامش أيسر */
 }
 
 .social-links {
-    /* روابط التواصل الاجتماعي */
     display: flex;
-    /* تخطيط مرن */
     justify-content: center;
-    /* محاذاة أفقية */
-    flex-wrap: wrap;
-    /* التفاف عند الضرورة */
     gap: 1rem;
-    /* فراغات */
-    margin: 3rem 0;
-    /* هامش */
+    margin: 2rem 0;
 }
 
 .social-link {
-    /* رابط التواصل الاجتماعي */
     display: flex;
-    /* تخطيط مرن */
     align-items: center;
-    /* محاذاة رأسية */
     justify-content: center;
-    /* محاذاة أفقية */
     width: 50px;
-    /* عرض ثابت */
     height: 50px;
-    /* ارتفاع ثابت */
     border-radius: 50%;
-    /* شكل دائري */
     background: rgba(255, 255, 255, 0.1);
-    /* خلفية شفافة */
     color: white;
-    /* نص أبيض */
     font-size: 1.3rem;
-    /* حجم خط */
     transition: var(--transition);
-    /* انتقال سلس */
+    text-decoration: none;
 }
 
 .social-link:hover {
-    /* رابط التواصل الاجتماعي عند التمرير */
     background: var(--primary);
-    /* خلفية */
     transform: translateY(-5px);
-    /* رفع للأعلى */
 }
 
-.copyright {
-    /* حقوق النشر */
-    margin-top: 3rem;
-    /* هامش علوي */
-    font-size: 0.9rem;
-    /* حجم خط صغير */
-    opacity: 0.8;
-    /* شفافية */
-    padding-top: 2rem;
-    /* حشوة علوية */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    /* خط علوي */
-}
-
-/* ===== الشريط الجانبي للهواتف ===== */
-.sidebar {
-    /* الشريط الجانبي */
-    position: fixed;
-    /* وضع ثابت */
-    top: 0;
-    /* أعلى الصفحة */
-    right: -100%;
-    /* خارج الشاشة من اليمين */
-    width: min(400px, 85vw);
-    /* عرض متجاوب */
-    height: 100%;
-    /* ارتفاع كامل */
-    background: var(--card-bg);
-    /* خلفية من المتغيرات */
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    /* ظل */
-    z-index: 1100;
-    /* طبقة عالية */
-    transition: var(--transition);
-    /* انتقال سلس */
-    padding: 3rem 2rem;
-    /* حشوة داخلية */
-    overflow-y: auto;
-    /* تمرير عمودي */
-}
-
-.sidebar.active {
-    /* الشريط الجانبي النشط */
-    right: 0;
-    /* داخل الشاشة */
-}
-
-.sidebar-close {
-    /* زر إغلاق الشريط الجانبي */
-    position: absolute;
-    /* وضع مطلق */
-    top: 1.5rem;
-    /* من الأعلى */
-    left: 1.5rem;
-    /* من اليسار */
-    background: none;
-    /* إزالة الخلفية */
-    border: none;
-    /* إزالة الحدود */
-    font-size: 1.5rem;
-    /* حجم خط */
-    color: var(--text);
-    /* لون النص */
-    cursor: pointer;
-    /* مؤشر يد */
-    transition: var(--transition);
-    /* انتقال سلس */
-}
-
-.sidebar-close:hover {
-    /* زر الإغلاق عند التمرير */
-    color: var(--primary);
-    /* تغيير اللون */
-    transform: rotate(90deg);
-    /* دوران */
-}
-
-.sidebar-nav {
-    /* التنقل في الشريط الجانبي */
-    margin-top: 4rem;
-    /* هامش علوي */
-    list-style: none;
-    /* إزالة النقاط */
-}
-
-.sidebar-nav li {
-    /* عناصر قائمة الشريط الجانبي */
-    margin-bottom: 1.5rem;
-    /* هامش سفلي */
-}
-
-.sidebar-nav a {
-    /* روابط الشريط الجانبي */
-    text-decoration: none;
-    /* إزالة التزيين */
-    color: var(--text);
-    /* لون النص */
-    font-size: 1.3rem;
-    /* حجم خط */
-    font-weight: 600;
-    /* سمك خط */
-    display: block;
-    /* عرض كتلة */
-    padding: 0.8rem 0;
-    /* حشوة رأسية */
-    transition: var(--transition);
-    /* انتقال سلس */
-    position: relative;
-    /* وضع نسبي */
-}
-
-.sidebar-nav a:hover {
-    /* روابط الشريط الجانبي عند التمرير */
-    color: var(--primary);
-    /* تغيير اللون */
-    padding-right: 1rem;
-    /* حشوة يمينية */
-}
-
-/* ===== الأنيميشن ===== */
-@keyframes fadeInLeft {
-    /* أنيميشن الظهور من اليسار */
-    from {
-        opacity: 0;
-        /* غير مرئي */
-        transform: translateX(-50px);
-        /* خارج الشاشة من اليسار */
-    }
-    to {
-        opacity: 1;
-        /* مرئي */
-        transform: translateX(0);
-        /* في مكانه */
-    }
-}
-
-@keyframes fadeInRight {
-    /* أنيميشن الظهور من اليمين */
-    from {
-        opacity: 0;
-        /* غير مرئي */
-        transform: translateX(50px);
-        /* خارج الشاشة من اليمين */
-    }
-    to {
-        opacity: 1;
-        /* مرئي */
-        transform: translateX(0);
-        /* في مكانه */
-    }
-}
-
-@keyframes fadeInUp {
-    /* أنيميشن الظهور من الأسفل */
-    from {
-        opacity: 0;
-        /* غير مرئي */
-        transform: translateY(50px);
-        /* خارج الشاشة من الأسفل */
-    }
-    to {
-        opacity: 1;
-        /* مرئي */
-        transform: translateY(0);
-        /* في مكانه */
-    }
-}
-
-@keyframes pulse {
-    /* أنيميشن النبض */
+@keyframes celebrationPop {
     0% {
-        transform: scale(1);
-        /* الحجم الطبيعي */
+        transform: scale(0.5);
+        opacity: 0;
     }
-    50% {
+    70% {
         transform: scale(1.1);
-        /* تكبير */
     }
     100% {
         transform: scale(1);
-        /* العودة للحجم الطبيعي */
+        opacity: 1;
     }
 }
 
-@keyframes floatBubble {
-    /* أنيميشن طفو الدوائر */
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        /* في مكانه */
-    }
-    33% {
-        transform: translateY(-30px) rotate(5deg);
-        /* رفع ودوران */
-    }
-    66% {
-        transform: translateY(15px) rotate(-5deg);
-        /* خفض ودوران عكسي */
-    }
-}
-
-@keyframes popBubble {
-    /* أنيميشن انفجار الدوائر */
-    0% {
-        transform: scale(1);
-        /* الحجم الطبيعي */
-        opacity: 0.2;
-        /* شفافية */
-    }
-    50% {
-        transform: scale(1.2);
-        /* تكبير */
-        opacity: 0.1;
-        /* تقليل الشفافية */
-    }
-    100% {
-        transform: scale(0);
-        /* تصغير للصفر */
-        opacity: 0;
-        /* غير مرئي */
-    }
-}
-
-@keyframes glitch-1 {
-    /* تأثير الغليتش الأول */
-    0% {
-        transform: translate(0);
-        /* في مكانه */
-        opacity: 0.8;
-        /* شفافية */
-    }
-    20% {
-        transform: translate(-5px, 5px);
-        /* تحريك */
-        opacity: 0.6;
-        /* تقليل الشفافية */
-    }
-    40% {
-        transform: translate(-5px, -5px);
-        /* تحريك */
-        opacity: 0.4;
-        /* تقليل الشفافية */
-    }
-    60% {
-        transform: translate(5px, 5px);
-        /* تحريك */
-        opacity: 0.6;
-        /* زيادة الشفافية */
-    }
-    80% {
-        transform: translate(5px, -5px);
-        /* تحريك */
-        opacity: 0.8;
-        /* زيادة الشفافية */
-    }
-    100% {
-        transform: translate(0);
-        /* العودة للمكان */
-        opacity: 0.8;
-        /* شفافية */
-    }
-}
-
-@keyframes glitch-2 {
-    /* تأثير الغليتش الثاني */
-    0% {
-        transform: translate(0);
-        /* في مكانه */
-        opacity: 0.8;
-        /* شفافية */
-    }
-    20% {
-        transform: translate(5px, -5px);
-        /* تحريك */
-        opacity: 0.6;
-        /* تقليل الشفافية */
-    }
-    40% {
-        transform: translate(5px, 5px);
-        /* تحريك */
-        opacity: 0.4;
-        /* تقليل الشفافية */
-    }
-    60% {
-        transform: translate(-5px, -5px);
-        /* تحريك */
-        opacity: 0.6;
-        /* زيادة الشفافية */
-    }
-    80% {
-        transform: translate(-5px, 5px);
-        /* تحريك */
-        opacity: 0.8;
-        /* زيادة الشفافية */
-    }
-    100% {
-        transform: translate(0);
-        /* العودة للمكان */
-        opacity: 0.8;
-        /* شفافية */
-    }
-}
-
-@keyframes confetti-fall {
-    /* أنيميشن سقوط الكونفيتي */
+@keyframes confettiFall {
     0% {
         transform: translateY(-100px) rotate(0deg);
-        /* بداية من الأعلى */
         opacity: 1;
-        /* مرئي */
     }
     100% {
         transform: translateY(100vh) rotate(360deg);
-        /* نزول مع دوران */
         opacity: 0;
-        /* غير مرئي */
     }
 }
 
-.fade-in {
-    /* فئة الظهور التدريجي */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary);
+    top: 0;
     opacity: 0;
-    /* غير مرئي */
-    transform: translateY(50px);
-    /* خارج الشاشة من الأسفل */
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    /* انتقال سلس */
+    z-index: 9999;
+    pointer-events: none;
 }
 
-.fade-in.visible {
-    /* فئة الظهور التدريجي النشطة */
-    opacity: 1;
-    /* مرئي */
-    transform: translateY(0);
-    /* في مكانه */
-}
-
-/* ===== التجاوب للهواتف ===== */
 @media (max-width: 1200px) {
-    /* شاشات حتى 1200px */
-    .hero-content {
-        /* محتوى قسم البطل */
-        grid-template-columns: 1fr;
-        /* عمود واحد */
-        text-align: center;
-        /* محاذاة النص لليمين */
-        gap: 3rem;
-        /* فراغ */
-    }
-
-    .contact-container-advanced {
-        /* حاوية التواصل */
-        grid-template-columns: 1fr;
-        /* عمود واحد */
+    .container {
+        max-width: 1000px;
     }
 }
 
 @media (max-width: 992px) {
-    /* شاشات حتى 992px */
-    .nav-links {
-        /* روابط التنقل */
-        display: none;
-        /* مخفي */
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
     }
-
-    .menu-toggle {
-        /* زر قائمة الموبايل */
-        display: flex;
-        /* ظاهر */
+    
+    .profile-img-wrapper {
+        width: 300px;
+        height: 300px;
     }
-
-    .projects-grid-advanced {
-        /* شبكة المشاريع */
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        /* أعمدة أصغر */
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
-
+    
+    .tech-categories {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
     .repos-grid {
-        /* شبكة المستودعات */
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        /* أعمدة أصغر */
     }
 }
 
 @media (max-width: 768px) {
-    /* شاشات حتى 768px */
-    .tech-categories {
-        /* فئات التقنيات */
-        grid-template-columns: 1fr;
-        /* عمود واحد */
+    .navbar {
+        width: 95%;
+        padding: 1rem;
+        top: 10px;
     }
-
-    .projects-grid-advanced {
-        /* شبكة المشاريع */
-        grid-template-columns: 1fr;
-        /* عمود واحد */
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
     }
-
-    .repos-grid {
-        /* شبكة المستودعات */
-        grid-template-columns: 1fr;
-        /* عمود واحد */
-    }
-
-    .contact-form-advanced {
-        /* نموذج التواصل */
-        padding: 1.5rem;
-        /* حشوة أصغر */
-    }
-
-    .contact-card {
-        /* بطاقة التواصل */
-        flex-direction: column;
-        /* اتجاه عمودي */
-        text-align: center;
-        /* محاذاة النص لليمين */
-    }
-
-    .github-stats {
-        /* إحصائيات GitHub */
-        gap: 1rem;
-        /* فراغات أصغر */
-    }
-
-    .stat-card {
-        /* بطاقة الإحصائيات */
-        min-width: 120px;
-        /* عرض أصغر */
-        padding: 1rem 1.5rem;
-        /* حشوة أصغر */
-    }
-
-    .stat-number {
-        /* الرقم في الإحصائيات */
-        font-size: 2rem;
-        /* حجم أصغر */
-    }
-
-    .copy-effect-content {
-        /* محتوى تأثير النسخ */
-        padding: 2rem 1rem;
-        /* حشوة أصغر */
-    }
-
-    .copy-effect-text {
-        /* نص تأثير النسخ */
+    
+    .title {
         font-size: 1.5rem;
-        /* حجم أصغر */
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .profile-img-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .tech-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .repos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .github-stats {
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        min-width: 120px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .chat-window {
+        width: 90%;
+        left: 5%;
+        height: 400px;
+    }
+    
+    .color-palette {
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+    
+    .side-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+    
+    .chat-toggle {
+        left: 10px;
+    }
+    
+    .color-toggle {
+        right: 10px;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    /* شاشات حتى 480px */
-    .hero-buttons {
-        /* أزرار قسم البطل */
-        display: flex;
-        /* تخطيط مرن */
-        flex-direction: column;
-        /* اتجاه عمودي */
-        gap: 1rem;
-        /* فراغات */
+    .hero {
+        padding-top: 80px;
     }
-
-    .btn-outline {
-        /* الأزرار ذات الإطار */
-        margin-right: 0;
-        /* إزالة الهامش */
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
     }
-
-    .projects-filter {
-        /* مرشحات المشاريع */
-        flex-direction: column;
-        /* اتجاه عمودي */
-        align-items: center;
-        /* محاذاة أفقية */
+    
+    .description {
+        font-size: 1rem;
     }
-
-    .filter-btn {
-        /* أزرار التصفية */
-        width: 100%;
-        /* عرض كامل */
-        max-width: 200px;
-        /* أقصى عرض */
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
-
+    
+    .profile-img-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .profile-overlay {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+    
+    .tech-stack {
+        padding: 2rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .nav-actions {
+        gap: 0.5rem;
+    }
+    
+    .control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
     .github-stats {
-        /* إحصائيات GitHub */
         flex-direction: column;
-        /* اتجاه عمودي */
         align-items: center;
-        /* محاذاة أفقية */
     }
-
+    
     .stat-card {
-        /* بطاقة الإحصائيات */
         width: 100%;
-        /* عرض كامل */
         max-width: 200px;
-        /* أقصى عرض */
     }
 }
