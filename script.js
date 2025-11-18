@@ -94,7 +94,11 @@ const TranslationSystem = {
             
             // قسم البطل
             'title': 'مطور واجهات أمامية متخصص',
-            'description': 'مطور واجهات أمامية محترف مع خبرة في React, Angular, Vue.js, Node.js, TypeScript. أبدع في تحويل الأفكار إلى تطبيقات ويب تفاعلية مع تجربة مستخدم استثنائية.<br><br>مع أكثر من 3 سنوات من الخبرة في تطوير واجهات المستخدم، أساعد الشركات والافراد في تحويل رؤيتهم إلى واقع رقمي ملموس. كل مشروع هو قصة جديدة أرويها من خلال الكود والتصميم.',
+            'description': 
+            `Frontend Developer يصنع واجهات ويب حديثة باستخدام JavaScript وHTML وCSS . أتعامل مع تطوير الويب كحرفة دقيقة، حيث يتحول الكود البسيط إلى تجربة مرئية واضحة ومتناغمة.            
+            <br><br>  أركز على بناء صفحات خفيفة وسريعة، بتفاصيل مدروسة وتفاعل نظيف يمنح المستخدم شعوراً بالسهولة والانسيابية. أحرص على كتابة كود منظم وقابل  للتطوير، وتحويل أي فكرة—even لو كانت بسيطة—إلى واجهة تعمل بانسجام وتعبّر عن جوهر المنتج.            
+            <br><br>
+أرى كل مشروع كمساحة لصقل الأسلوب، فهم سلوك المستخدم، وتطوير رؤية تصميمية تتقدم خطوة بعد خطوة نحو مستوى أعلى من الاحتراف.            `,
             'projectsBtn': 'مشاريعي',
             'contactBtn': 'تواصل معي',
             
@@ -150,10 +154,15 @@ const TranslationSystem = {
             'github': 'GitHub Projects',
             'projects': 'Projects',
             'contact': 'Contact',
-            
             // Hero Section
-            'title': 'Specialized Frontend Developer',
-            'description': 'Professional frontend developer with expertise in React, Angular, Vue.js, Node.js, TypeScript. I excel at transforming ideas into interactive web applications with exceptional user experience.<br><br>With over 3 years of experience in UI development, I help companies and individuals transform their vision into tangible digital reality. Each project is a new story I tell through code and design.',
+            'description': `
+            Frontend Developer crafting modern web interfaces using JavaScript, HTML, and CSS.  
+            I treat web development as a precise craft, where simple lines of code transform into a clear, balanced visual experience.
+            <br><br>
+            I focus on building fast and lightweight pages, with thoughtful details and clean interactions that give users a sense of ease and flow.  
+            I care about writing structured, scalable code and turning any idea—even a small one—into an interface that works smoothly and reflects the essence of the product.
+            <br><br>
+            I see every project as a space to refine style, understand user behavior, and shape a design vision that grows step by step toward a higher level of mastery.`,
             'projectsBtn': 'My Projects',
             'contactBtn': 'Contact Me',
             
